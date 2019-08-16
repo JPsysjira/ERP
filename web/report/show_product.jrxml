@@ -26,7 +26,7 @@
 	<subDataset name="Table Dataset 1" uuid="46300a0d-2291-4573-b026-dc460095a5a7"/>
 	<parameter name="qt_id_2" class="java.lang.String"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\pakasit\\Documents\\NetBeansProjects\\ERP\\web\\report\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["C:\\Users\\Jira\\Documents\\NetBeansProjects\\ERP\\web\\report\\"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="qtd_des_head" class="java.lang.String"/>
 	<queryString>
@@ -176,77 +176,77 @@ WHERE
 	<detail>
 		<band height="12" splitType="Stretch">
 			<staticText>
-				<reportElement style="table" stretchType="RelativeToTallestObject" mode="Opaque" x="15" y="0" width="220" height="12" backcolor="#FFFFFF" uuid="58ac29d7-cb48-497f-85fb-0e886bc3dbbb"/>
+				<reportElement uuid="58ac29d7-cb48-497f-85fb-0e886bc3dbbb" style="table" stretchType="RelativeToTallestObject" mode="Opaque" x="15" y="0" width="220" height="12" backcolor="#FFFFFF"/>
 				<textElement>
 					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
-				<reportElement stretchType="RelativeToBandHeight" isPrintRepeatedValues="false" mode="Transparent" x="20" y="0" width="215" height="12" isRemoveLineWhenBlank="true" uuid="44d3ea44-15c7-4986-a62e-a0fddcb2ca46"/>
+				<reportElement uuid="44d3ea44-15c7-4986-a62e-a0fddcb2ca46" stretchType="RelativeToBandHeight" isPrintRepeatedValues="false" mode="Transparent" x="20" y="0" width="215" height="12" isRemoveLineWhenBlank="true"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{product_ITEM_NAME_EN}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement style="table" stretchType="RelativeToBandHeight" mode="Opaque" x="288" y="0" width="90" height="12" backcolor="#FFFFFF" uuid="d8c26fc8-69ed-46ea-a6ea-957f52f0d00c"/>
+				<reportElement uuid="d8c26fc8-69ed-46ea-a6ea-957f52f0d00c" style="table" stretchType="RelativeToBandHeight" mode="Opaque" x="288" y="0" width="90" height="12" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="table" stretchType="RelativeToBandHeight" mode="Opaque" x="442" y="0" width="97" height="12" backcolor="#FFFFFF" uuid="e47bfaf2-b0ea-404e-898a-c8fe807054c2"/>
+				<reportElement uuid="e47bfaf2-b0ea-404e-898a-c8fe807054c2" style="table" stretchType="RelativeToBandHeight" mode="Opaque" x="442" y="0" width="97" height="12" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="table" stretchType="RelativeToBandHeight" mode="Opaque" x="378" y="0" width="64" height="12" backcolor="#FFFFFF" uuid="d24ff5df-7cac-471b-9ec2-d6514c75239c"/>
+				<reportElement uuid="d24ff5df-7cac-471b-9ec2-d6514c75239c" style="table" stretchType="RelativeToBandHeight" mode="Opaque" x="378" y="0" width="64" height="12" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10" isBold="false"/>
 				</textElement>
 				<text><![CDATA[T]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="table" stretchType="RelativeToBandHeight" mode="Opaque" x="235" y="0" width="53" height="12" backcolor="#FFFFFF" uuid="3cce6341-f9a4-451f-a5c0-d7165f540f67"/>
+				<reportElement uuid="3cce6341-f9a4-451f-a5c0-d7165f540f67" style="table" stretchType="RelativeToBandHeight" mode="Opaque" x="235" y="0" width="53" height="12" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<textField pattern="#,##0.00">
-				<reportElement stretchType="RelativeToBandHeight" x="311" y="0" width="61" height="12" uuid="e2c02a5a-18b3-44ea-beed-bcb3bbbce9e1"/>
+				<reportElement uuid="e2c02a5a-18b3-44ea-beed-bcb3bbbce9e1" stretchType="RelativeToBandHeight" x="311" y="0" width="61" height="12"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{qt_detail_QTD_UNIT_PRICE}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement stretchType="RelativeToBandHeight" x="288" y="0" width="26" height="12" uuid="71d209c5-81ff-4ee7-a0b9-69867d9384e4"/>
+				<reportElement uuid="71d209c5-81ff-4ee7-a0b9-69867d9384e4" stretchType="RelativeToBandHeight" x="288" y="0" width="26" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cur_CURR_CD}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00">
-				<reportElement stretchType="RelativeToBandHeight" x="465" y="0" width="61" height="12" uuid="01381b83-aaa9-4b04-bc20-305cc6b4daef"/>
+				<reportElement uuid="01381b83-aaa9-4b04-bc20-305cc6b4daef" stretchType="RelativeToBandHeight" x="465" y="0" width="61" height="12"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{qt_detail_QTD_AMT}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement stretchType="RelativeToBandHeight" x="235" y="0" width="53" height="12" uuid="fc24358f-42fc-46ed-b956-ebe21a3238da"/>
+				<reportElement uuid="fc24358f-42fc-46ed-b956-ebe21a3238da" stretchType="RelativeToBandHeight" x="235" y="0" width="53" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{qt_detail_QTD_QTY}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement stretchType="RelativeToBandHeight" x="442" y="0" width="26" height="12" uuid="b48e5b98-7f7e-4b46-9461-37914db9d321"/>
+				<reportElement uuid="b48e5b98-7f7e-4b46-9461-37914db9d321" stretchType="RelativeToBandHeight" x="442" y="0" width="26" height="12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
@@ -255,7 +255,7 @@ WHERE
 		</band>
 		<band height="12">
 			<subreport>
-				<reportElement x="0" y="0" width="555" height="12" uuid="180f0d06-fec6-4a97-b60b-94887dd881d1"/>
+				<reportElement uuid="180f0d06-fec6-4a97-b60b-94887dd881d1" x="0" y="0" width="555" height="12"/>
 				<subreportParameter name="qt_id_3">
 					<subreportParameterExpression><![CDATA[$F{qh2_QT_ID}]]></subreportParameterExpression>
 				</subreportParameter>
