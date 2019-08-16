@@ -27,7 +27,7 @@
 	<subDataset name="Table Dataset 2" uuid="60a5edac-fb24-4d31-a0b4-7c1017a94caf"/>
 	<parameter name="qt_id_1" class="java.lang.String"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\Jira\\Documents\\NetBeansProjects\\ERP\\web\\report\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["..\\report\\"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[select distinct(QTD_DES_HEAD),qh2.QT_ID FROM
