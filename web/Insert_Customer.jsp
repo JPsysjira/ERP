@@ -1,5 +1,5 @@
 <%-- 
-    Document   : InsertP
+    Document   : Insert_Customer
     Created on : May 7, 2019, 2:53:12 PM
     Author     : Jira
 --%>
