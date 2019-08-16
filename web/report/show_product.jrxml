@@ -26,7 +26,7 @@
 	<subDataset name="Table Dataset 1" uuid="46300a0d-2291-4573-b026-dc460095a5a7"/>
 	<parameter name="qt_id_2" class="java.lang.String"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\pakasit\\Documents\\NetBeansProjects\\ERP\\web\\report\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["..\\report\\"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="qtd_des_head" class="java.lang.String"/>
 	<queryString>
