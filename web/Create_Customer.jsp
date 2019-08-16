@@ -1,5 +1,5 @@
 <%-- 
-    Document   : Create_Product
+    Document   : Create_Customer
     Created on : May 9, 2019, 11:26:28 AM
     Author     : pakasit
 --%>
