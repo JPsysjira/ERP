@@ -270,7 +270,6 @@
                 <% 
                     String count = request.getParameter("count"); 
                     String line = request.getParameter("line"); 
-                    out.print(line);
                 %>
                 <input  hidden id="count" value='<%= count %>' >
                 <input  hidden id="line" value='<%= line %>' >
