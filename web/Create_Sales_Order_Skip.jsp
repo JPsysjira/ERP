@@ -54,25 +54,9 @@
         <!-- นำเข้า  Javascript  จาก   dataTables -->
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/select/1.3.0/js/dataTables.select.min.js"></script>
-        <!-- Function can't click back -->
-                <script type="text/javascript">
-            function noBack(){
-                window.history.forward();
-            }
-             
-            noBack();
-            window.onload = noBack;
-            window.onpageshow = function(evt) { 
-                if (evt.persisted){ 
-                    noBack(); 
-                }
-            };
-            window.onunload = function() { 
-                void (0); 
-            };
-        </script>
+
         
-        <title>Create Quotation</title>
+        <title>Create Sales Order</title>
 
         <style>
             .image {
@@ -395,10 +379,10 @@
                     cols += '<textarea class="form-control" id="description' + counter + '" name="description' + counter + '" onclick="SelectDes('+counter+')" readonly /></textarea></td>';
                     cols += '<td><input type="text" class="form-control" id="unit_price' + counter + '" name="unit_price' + counter + '" onchange="changeinput('+counter+')" style="text-align: right;" value="0.00" /></td>';
                     cols += '<td><input type="text" class="form-control" id="quantity' + counter + '" name="quantity' + counter + '" onchange="changeinput('+counter+')" style="text-align: right;" value="0" /></td>';
-                    cols += '<td><input type="text" class="form-control" id="amount' + counter + '" name="amount' + counter + '" style="text-align: right;" value="0.00" readonly /></td>';
+                    cols += '<td><input type="text" class="form-control" id="amount' + counter + '" name="amount' + counter + '" style="text-align: right;" value="0.00" readonly tabindex="-1" /></td>';
                     cols += '<td><input type="text" class="form-control" id="discount_per' + counter + '" name="discount_per' + counter + '" onchange="discount_changeper('+counter+')" style="text-align: right;" value="0" /></td>';
                     cols += '<td><input type="text" class="form-control" id="discountamt' + counter + '" name="discountamt' + counter + '" onchange="discount_changeamt('+counter+')" style="text-align: right;" value="0.00" /></td>';
-                    cols += '<td><input type="text" class="form-control" id="amount_after' + counter + '" name="amount_after' + counter + '" style="text-align: right;" value="0.00" readonly /></td>';
+                    cols += '<td><input type="text" class="form-control" id="amount_after' + counter + '" name="amount_after' + counter + '" style="text-align: right;" value="0.00" readonly tabindex="-1" /></td>';
                     
                     
                     newRow.append(cols);
@@ -712,45 +696,45 @@
                     <table style=" margin-right: 3%"  align="right" >
                         <tr>
                             <th>Total without discounts and taxses : </th>
-                            <td style=" width: 30px"><input id="qt_amt_wotax" name="od_amt_wotax" value="0.00" readonly="" style="text-align: right;"></td>
+                            <td style=" width: 30px"><input id="qt_amt_wotax" name="od_amt_wotax" value="0.00" readonly="" tabindex="-1" style="text-align: right;border: none;"></td>
                             <td><span id="cur_sym1"></span></td>
                         </tr>
                         <tr>
                             <th style=" text-align: right">Discount : </th>
-                            <td style=" width: 30px"><input id="qt_discount" name="od_discount" value="0.00" readonly="" style="text-align: right;"></td>
+                            <td style=" width: 30px"><input id="qt_discount" name="od_discount" value="0.00" readonly="" tabindex="-1" style="text-align: right;border: none;"></td>
                             <td><span id="cur_sym2"></span></td>
                         </tr>
                         <tr>
                             <th style=" text-align: right">Sub Total : </th>
-                            <td style=" width: 30px"><input id="qt_subtotal" name="od_subtotal" value="0.00" readonly="" style="text-align: right;" ></td>
+                            <td style=" width: 30px"><input id="qt_subtotal" name="od_subtotal" value="0.00" readonly="" tabindex="-1" style="text-align: right;border: none;" ></td>
                             <td><span id="cur_sym3"></span></td>
                         </tr>
                         <tr>
                             <th style=" text-align: right">Tax : </th>
-                            <td style=" width: 30px"><input id="qt_tax" name="od_tax" value="" readonly="" style="text-align: right;"></td>
+                            <td style=" width: 30px"><input id="qt_tax" name="od_tax" value="" readonly="" tabindex="-1" style="text-align: right;border: none;"></td>
                             <td>%</td>
                         </tr>
                         <tr>
                             <th style=" text-align: right">Vat : </th>
-                            <td style=" width: 30px"><input id="qt_vat" name="od_vat" value="0.00" readonly="" style="text-align: right;"></td>
+                            <td style=" width: 30px"><input id="qt_vat" name="od_vat" value="0.00" readonly="" tabindex="-1" style="text-align: right;border: none;"></td>
                             <td><span id="cur_sym4"></span></td>
                         </tr>
                         <tr>
                             <th style=" text-align: right">Total Amount : </th>
-                            <td style=" width: 30px"><input id="qt_amt" name="od_amt" value="0.00" readonly="" style="text-align: right;"></td>
+                            <td style=" width: 30px"><input id="qt_amt" name="od_amt" value="0.00" readonly="" tabindex="-1" style="text-align: right;border: none;"></td>
                             <td><span id="cur_sym5"></span></td>
                         </tr>
                         <input id="save_counter" name="save_counter" value="0" hidden>
                         <input id="save_line" hidden>
                     </table>
 
-                    <table  style="margin-left:5%;">
+                    <table  style="margin-left:5%;width: 90%;" >
                         <tr><div class="form-submit">
-                            <td><button class="btn btn-primary" id="submit" name="Save" type="submit" value="Save">Save</button></td>
-                            <td><button class="btn btn-danger" id="back" name="Back" type="button" onclick="goBack()">Back</button></td>
+                            <td><button style="float:left;" class="btn btn-danger" id="back" name="Back" type="button" onclick="goBack()">Cancel</button></td>
+                            <td><button style="float:right;" class="btn btn-primary" id="submit" name="Save" type="submit" value="Save">Save</button></td>
                         </div>
                         </tr>
-                    </table>            
+                    </table>         
 
                 </form>
                 <script type="text/javascript">

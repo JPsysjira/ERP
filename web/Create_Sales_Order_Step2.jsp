@@ -809,45 +809,45 @@
                     <table style=" margin-right: 3%"  align="right" >
                         <tr>
                             <th>Total without discounts and taxses : </th>
-                            <td style=" width: 30px"><input id="qt_amt_wotax" name="od_amt_wotax" value="<%=amt_wotax%>" readonly="" style="text-align: right;"></td>
+                            <td style=" width: 30px"><input id="qt_amt_wotax" name="od_amt_wotax" value="<%=amt_wotax%>" readonly="" tabindex="-1" style="text-align: right; border: none;"></td>
                             <td><span id="cur_sym1"></span></td>
                         </tr>
                         <tr>
                             <th style=" text-align: right">Discount : </th>
-                            <td style=" width: 30px"><input id="qt_discount" name="od_discount" value="<%=discount%>" readonly="" style="text-align: right;"></td>
+                            <td style=" width: 30px"><input id="qt_discount" name="od_discount" value="<%=discount%>" readonly="" tabindex="-1" style="text-align: right;border: none;"></td>
                             <td><span id="cur_sym2"></span></td>
                         </tr>
                         <tr>
                             <th style=" text-align: right">Sub Total : </th>
-                            <td style=" width: 30px"><input id="qt_subtotal" name="od_subtotal" value="<%=subtotal%>" readonly="" style="text-align: right;" ></td>
+                            <td style=" width: 30px"><input id="qt_subtotal" name="od_subtotal" value="<%=subtotal%>" readonly="" tabindex="-1" style="text-align: right;border: none;" ></td>
                             <td><span id="cur_sym3"></span></td>
                         </tr>
                         <tr>
                             <th style=" text-align: right">Tax : </th>
-                            <td style=" width: 30px"><input id="qt_tax" name="od_tax" value="<%=crr_tax%>" readonly="" style="text-align: right;"></td>
+                            <td style=" width: 30px"><input id="qt_tax" name="od_tax" value="<%=crr_tax%>" readonly="" tabindex="-1" style="text-align: right;border: none;"></td>
                             <td>%</td>
                         </tr>
                         <tr>
                             <th style=" text-align: right">Vat : </th>
-                            <td style=" width: 30px"><input id="qt_vat" name="od_vat" value="<%=vat%>" readonly="" style="text-align: right;"></td>
+                            <td style=" width: 30px"><input id="qt_vat" name="od_vat" value="<%=vat%>" readonly="" tabindex="-1" style="text-align: right; border: none;"></td>
                             <td><span id="cur_sym4"></span></td>
                         </tr>
                         <tr>
                             <th style=" text-align: right">Total Amount : </th>
-                            <td style=" width: 30px"><input id="qt_amt" name="od_amt" value="<%=qt_amt_d%>" readonly="" style="text-align: right;"></td>
+                            <td style=" width: 30px"><input id="qt_amt" name="od_amt" value="<%=qt_amt_d%>" readonly="" tabindex="-1" style="text-align: right; border: none;"></td>
                             <td><span id="cur_sym5"></span></td>
                         </tr>
                         <input id="save_counter" name="save_counter" hidden>
                         <input id="save_line" hidden>
                     </table>
 
-                    <table  style="margin-left:5%;">
+                    <table  style="margin-left:5%;width: 90%;" >
                         <tr><div class="form-submit">
-                            <td><button class="btn btn-primary" id="submit" name="Save" type="submit" value="Save">Save</button></td>
-                            <td><button class="btn btn-danger" id="back" name="Back" type="button" onclick="goBack()">Back</button></td>
+                            <td><button style="float:left;" class="btn btn-danger" id="back" name="Back" type="button" onclick="goBack()">Cancel</button></td>
+                            <td><button style="float:right;" class="btn btn-primary" id="submit" name="Save" type="submit" value="Save">Save</button></td>
                         </div>
                         </tr>
-                    </table>            
+                    </table>               
 
                 </form>
 

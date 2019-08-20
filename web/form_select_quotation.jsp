@@ -237,7 +237,7 @@
                 </table>
 <!--                    <input type='text' id='sel_pro' />-->
                 
-                    <button class="btn btn-success" id="buttontable">Select</button>
+                    <button style="float:right; margin-right: 5%;" class="btn btn-success" id="buttontable">Select</button>
                 <!--<input type="button" value="Select" onclick="SetName();" />-->
                 <% String count = request.getParameter("count"); 
                     String line = request.getParameter("line"); 

@@ -27,8 +27,10 @@
             <tr>
                 <td ><textarea id="despopup" class="form-control" rows="20" ><%= desfrommain %></textarea></td>
             </tr>
-            <tr><td><button class="btn btn-success" id="buttontable" onclick="sendback()">OK</button>
-                <button class="btn btn-danger" id="back" name="Back" type="button" onclick="closepop()">Back</button></td></tr>
+            <tr><td>
+                <button style="float:left; margin-left: 5%;" class="btn btn-danger" id="back" name="Back" type="button" onclick="closepop()">Cancel</button>
+                <button style="float:right; margin-right: 5%;" class="btn btn-success" id="buttontable" onclick="sendback()">OK</button>
+                </td></tr>
         </table>
         <!-- line from main page -->
         <input  hidden id="line" value='<%= line %>' >

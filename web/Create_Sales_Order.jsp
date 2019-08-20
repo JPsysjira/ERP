@@ -54,23 +54,8 @@
         <!-- นำเข้า  Javascript  จาก   dataTables -->
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/select/1.3.0/js/dataTables.select.min.js"></script>
-            <!-- Function can't click back -->
-                <script type="text/javascript">
-            function noBack(){
-                window.history.forward();
-            }
-             
-            noBack();
-            window.onload = noBack;
-            window.onpageshow = function(evt) { 
-                if (evt.persisted){ 
-                    noBack(); 
-                }
-            };
-            window.onunload = function() { 
-                void (0); 
-            };
-        </script>
+
+
         
         <!------ Title ---------->
         <title>Create Sales Order</title>
@@ -579,8 +564,8 @@
                      <br>
                     <table  align="center" style=" width: 85%;">
                         <tr><div class="form-submit">
-                            <td><button class="btn btn-primary btn-lg" id="submit" name="Next" type="submit" value="Next">Next</button></td>
-                            <td><button style=" float: right;" class="btn btn-danger btn-lg" id="Skip" name="Skip" type="button" onclick="location.href='Create_Sales_Order_Skip.jsp'">Skip</button></td>
+                            <td><button style=" float: left;" class="btn btn-danger btn-lg" id="Skip" name="Skip" type="button" onclick="location.href='Create_Sales_Order_Skip.jsp'">Skip</button></td>
+                            <td><button style=" float: right;" class="btn btn-primary btn-lg" id="submit" name="Next" type="submit" value="Next">Next</button></td>
                         </div></tr>
                     </table>            
 
@@ -598,7 +583,7 @@
                     var popup;
                     //Open popup to select quotation
                     function SelectQ() {
-                        popup = window.open("form_select_quotation.jsp", "Popup", "width=900,height=550");
+                        popup = window.open("form_select_quotation.jsp", "Popup", "width=900,height=600");
                         popup.focus();
                     }
                     //Alert when no product data and click Save
