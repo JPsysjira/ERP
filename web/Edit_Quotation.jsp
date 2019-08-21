@@ -464,10 +464,10 @@
                     cols += '<textarea class="form-control" id="description' + counter + '" name="description' + counter + '" onclick="SelectDes('+counter+')" readonly /></textarea></td>';
                     cols += '<td><input type="text" class="form-control" id="unit_price' + counter + '" name="unit_price' + counter + '" onchange="changeinput('+counter+')" style="text-align: right;" value="0.00" /></td>';
                     cols += '<td><input type="text" class="form-control" id="quantity' + counter + '" name="quantity' + counter + '" onchange="changeinput('+counter+')" style="text-align: right;" value="0" /></td>';
-                    cols += '<td><input type="text" class="form-control" id="amount' + counter + '" name="amount' + counter + '" style="text-align: right;" value="0.00" readonly /></td>';
+                    cols += '<td><input type="text" class="form-control" id="amount' + counter + '" name="amount' + counter + '" style="text-align: right;" value="0.00" readonly tabindex="-1" /></td>';
                     cols += '<td><input type="text" class="form-control" id="discount_per' + counter + '" name="discount_per' + counter + '" onchange="discount_changeper('+counter+')" style="text-align: right;" value="0" /></td>';
                     cols += '<td><input type="text" class="form-control" id="discountamt' + counter + '" name="discountamt' + counter + '" onchange="discount_changeamt('+counter+')" style="text-align: right;" value="0.00" /></td>';
-                    cols += '<td><input type="text" class="form-control" id="amount_after' + counter + '" name="amount_after' + counter + '" style="text-align: right;" value="0.00" readonly /></td>';
+                    cols += '<td><input type="text" class="form-control" id="amount_after' + counter + '" name="amount_after' + counter + '" style="text-align: right;" value="0.00" readonly tabindex="-1"/></td>';
                     newRow.append(cols);
                     $("#Table_price").append(newRow);         
                     document.getElementById("save_counter").value = parseInt(counter);
@@ -776,17 +776,17 @@
                             <tr>
                             <td><input type="text" readonly style=" text-align: center" class="form-control" id="line<%=line_no%>" name="line<%=line_no%>" value="<%=line_no%>" />
                             <input class="btn btn-danger" id="del_line<%=line_no%>" type="button" style="width:100%;" value="-" onclick="del_line(this);"/></td>
-                                <td><input type="text" class="form-control" id="selectPro<%=line_no%>" name="product<%=line_no%>" value="<%=item_no%>" required="" data-readonly style="width:70%; display:inline;" /><input class="btn btn-default" id="selectProButton<%=line_no%>" type="button" value="+" onclick="SelectProduct(<%=line_no%>)" style="width:30%;height:30%; display:inline;" />
+                                <td><input type="text" class="form-control" id="selectPro<%=line_no%>" name="product<%=line_no%>" value="<%=item_no%>" required="" readonly style="width:70%; display:inline;" /><input class="btn btn-default" id="selectProButton<%=line_no%>" type="button" value="+" onclick="SelectProduct(<%=line_no%>)" style="width:30%;height:30%; display:inline;" />
                                 <input type="text" class="form-control" id="selectPro_name<%=line_no%>" name="product_name<%=line_no%>" value="<%=item_name%>" readonly /></td>
                                 <td><input type="text" class="form-control" id="deshead<%=line_no%>" name="deshead<%=line_no%>" placeholder="Description Head" value="<%= deshead %>"  />
                                 <textarea class="form-control" id="description<%=line_no%>" name="description<%=line_no%>" onclick="SelectDes(<%=line_no%>)" readonly /><%=des%></textarea></td>
                         
                                 <td><input type="text" class="form-control" id="unit_price<%=line_no%>" name="unit_price<%=line_no%>" onchange="changeinput(<%=line_no%>)" style="text-align: right;" value="<%=unit_price_d%>" /></td>
                                 <td><input type="text" class="form-control" id="quantity<%=line_no%>" name="quantity<%=line_no%>" onchange="changeinput(<%=line_no%>)" style="text-align: right;" value="<%=qty%>" /></td>
-                                <td><input type="text" class="form-control" id="amount<%=line_no%>" name="amount<%=line_no%>" style="text-align: right;" value="<%=amt_d%>" readonly /></td>
+                                <td><input type="text" class="form-control" id="amount<%=line_no%>" name="amount<%=line_no%>" style="text-align: right;" value="<%=amt_d%>" readonly tabindex="-1"/></td>
                                 <td><input type="text" class="form-control" id="discount_per<%=line_no%>" name="discount_per<%=line_no%>" onchange="discount_changeper(<%=line_no%>)" style="text-align: right;" value="<%=dis_per%>" /></td>
                                 <td><input type="text" class="form-control" id="discountamt<%=line_no%>" name="discountamt<%=line_no%>" onchange="discount_changeamt(<%=line_no%>)" style="text-align: right;" value="<%=dis_amt_d%>" /></td>
-                                <td><input type="text" class="form-control" id="amount_after<%=line_no%>" name="amount_after<%=line_no%>" style="text-align: right;" value="<%=dis_a_amt_d%>" readonly /></td>
+                                <td><input type="text" class="form-control" id="amount_after<%=line_no%>" name="amount_after<%=line_no%>" style="text-align: right;" value="<%=dis_a_amt_d%>" readonly tabindex="-1"/></td>
                                 <td hidden><input type="text" id="qtd_id<%=line_no%>" name="qtd_id<%=line_no%>" style="text-align: right;" value="<%= qtd_id %>" readonly /></td>
                             </tr>
                             
@@ -805,43 +805,43 @@
                     <table style=" margin-right: 3%"  align="right" >
                         <tr>
                             <th>Total without discounts and taxses : </th>
-                            <td style=" width: 30px"><input id="qt_amt_wotax" name="qt_amt_wotax" value="<%=amt_wotax%>" readonly="" style="text-align: right;"></td>
+                            <td style=" width: 30px"><input id="qt_amt_wotax" name="qt_amt_wotax" value="<%=amt_wotax%>" readonly="" tabindex="-1" style="text-align: right;border: none;"></td>
                             <td><span id="cur_sym1"></span></td>
                         </tr>
                         <tr>
                             <th style=" text-align: right">Discount : </th>
-                            <td style=" width: 30px"><input id="qt_discount" name="qt_discount" value="<%=discount%>" readonly="" style="text-align: right;"></td>
+                            <td style=" width: 30px"><input id="qt_discount" name="qt_discount" value="<%=discount%>" readonly="" tabindex="-1" style="text-align: right;border: none;"></td>
                             <td><span id="cur_sym2"></span></td>
                         </tr>
                         <tr>
                             <th style=" text-align: right">Sub Total : </th>
-                            <td style=" width: 30px"><input id="qt_subtotal" name="qt_subtotal" value="<%=subtotal%>" readonly="" style="text-align: right;" ></td>
+                            <td style=" width: 30px"><input id="qt_subtotal" name="qt_subtotal" value="<%=subtotal%>" readonly="" tabindex="-1" style="text-align: right;border: none;" ></td>
                             <td><span id="cur_sym3"></span></td>
                         </tr>
                         <tr>
                             <th style=" text-align: right">Tax : </th>
-                            <td style=" width: 30px"><input id="qt_tax" name="qt_tax" value="<%=crr_tax%>" readonly="" style="text-align: right;"></td>
+                            <td style=" width: 30px"><input id="qt_tax" name="qt_tax" value="<%=crr_tax%>" readonly="" tabindex="-1" style="text-align: right;border: none;"></td>
                             <td>%</td>
                         </tr>
                         <tr>
                             <th style=" text-align: right">Vat : </th>
-                            <td style=" width: 30px"><input id="qt_vat" name="qt_vat" value="<%=vat%>" readonly="" style="text-align: right;"></td>
+                            <td style=" width: 30px"><input id="qt_vat" name="qt_vat" value="<%=vat%>" readonly="" tabindex="-1" style="text-align: right;border: none;"></td>
                             <td><span id="cur_sym4"></span></td>
                         </tr>
                         <tr>
                             <th style=" text-align: right">Total Amount : </th>
-                            <td style=" width: 30px"><input id="qt_amt" name="qt_amt" value="<%=qt_amt_d%>" readonly="" style="text-align: right;"></td>
+                            <td style=" width: 30px"><input id="qt_amt" name="qt_amt" value="<%=qt_amt_d%>" readonly="" tabindex="-1" style="text-align: right;border: none;"></td>
                             <td><span id="cur_sym5"></span></td>
                         </tr>
                     </table>
 
-                    <table  style="margin-left:5%;">
+                    <table  style="margin-left:5%;width: 90%;" >
                         <tr><div class="form-submit">
-                            <td><button class="btn btn-primary" id="submit" name="Save" type="submit" value="Save">Save</button></td>
-                            <td><button class="btn btn-danger" id="back" name="Back" type="button" onclick="goBack()">Back</button></td>
+                            <td><button style="float:left;" class="btn btn-danger" id="back" name="Back" type="button" onclick="goBack()">Cancel</button></td>
+                            <td><button style="float:right;" class="btn btn-primary" id="submit" name="Save" type="submit" value="Save">Save</button></td>
                         </div>
                         </tr>
-                    </table>            
+                    </table>         
 
                 </form>
 

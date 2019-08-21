@@ -134,14 +134,18 @@
                 text-align: center;
             }
             .sidebar{
-                width: 15%;
-                height: 100%;
-                /*    border: 1px solid lightgray;*/
-                position: fixed;
-                border: 1px solid;
                 border-color: #5a5255;
+                border: 1px solid lightgray;
                 border-top: none;
-                float: left;
+                border: 1px solid;
+                height: 100%; /* 100% Full-height */
+                width: 15%; /* 0 width - change this with JavaScript */
+                position: fixed; /* Stay in place */
+                top: 0;
+                left: 0;
+                overflow-x: hidden; /* Disable horizontal scroll */
+                padding-top: 60px; /* Place content 60px from the top */
+                transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
             }
 
 

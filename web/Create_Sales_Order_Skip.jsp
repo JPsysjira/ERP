@@ -585,8 +585,8 @@
                             <td></td>
                             <th>Status</th>
                             <td>
-                                <select id="status" name="status" class="form-control" style="height:20%; display:inline; ">
-                                    <option value="Awaiting order">Awaiting order</option>
+                                <select id="od_status" name="od_status" class="form-control" style="height:20%; display:inline; ">
+                                    <option value="Awaiting order" selected="">Awaiting order</option>
                                     <option value="Order in processing">Order in processing</option>
                                     <option value="Order dispatched">Order dispatched</option>
                                     <option value="Order delivered">Order delivered</option>
@@ -619,7 +619,7 @@
                             <td></td>
                             <th>Payment Status</th>
                             <td>
-                                <select id="P_status" name="P_status" class="form-control" style="height:20%; display:inline; ">
+                                <select id="od_status" name="od_status" class="form-control" style="height:20%; display:inline; ">
                                     <option value="Transaction incomplete">Transaction incomplete</option>
                                     <option value="Awaiting payment">Awaiting payment</option>
                                     <option value="Payment completed">Payment completed</option>

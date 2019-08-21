@@ -461,10 +461,10 @@
                     cols += '<textarea class="form-control" id="description' + counter + '" name="description' + counter + '" onclick="SelectDes(' + counter + ')" readonly /></textarea></td>';
                     cols += '<td><input type="text" class="form-control" id="unit_price' + counter + '" name="unit_price' + counter + '" onchange="changeinput(' + counter + ')" style="text-align: right;" value="0.00" /></td>';
                     cols += '<td><input type="text" class="form-control" id="quantity' + counter + '" name="quantity' + counter + '" onchange="changeinput(' + counter + ')" style="text-align: right;" value="0" /></td>';
-                    cols += '<td><input type="text" class="form-control" id="amount' + counter + '" name="amount' + counter + '" style="text-align: right;" value="0.00" readonly /></td>';
+                    cols += '<td><input type="text" class="form-control" id="amount' + counter + '" name="amount' + counter + '" style="text-align: right;" value="0.00" readonly tabindex="-1"/></td>';
                     cols += '<td><input type="text" class="form-control" id="discount_per' + counter + '" name="discount_per' + counter + '" onchange="discount_changeper(' + counter + ')" style="text-align: right;" value="0" /></td>';
                     cols += '<td><input type="text" class="form-control" id="discountamt' + counter + '" name="discountamt' + counter + '" onchange="discount_changeamt(' + counter + ')" style="text-align: right;" value="0.00" /></td>';
-                    cols += '<td><input type="text" class="form-control" id="amount_after' + counter + '" name="amount_after' + counter + '" style="text-align: right;" value="0.00" readonly /></td>';
+                    cols += '<td><input type="text" class="form-control" id="amount_after' + counter + '" name="amount_after' + counter + '" style="text-align: right;" value="0.00" readonly tabindex="-1"/></td>';
 
 
                     newRow.append(cols);
@@ -624,8 +624,8 @@
                             <th>Status</th>
 
                             <td>
-                                <select id="status" name="od_status" class="form-control" style="height:20%; display:inline; ">
-                                    <option value="Awaiting order">Awaiting order</option>
+                                <select id="od_status" name="od_status" class="form-control" style="height:20%; display:inline; ">
+                                    <option value="Awaiting order" selected="">Awaiting order</option>
                                     <option value="Order in processing">Order in processing</option>
                                     <option value="Order dispatched">Order dispatched</option>
                                     <option value="Order delivered">Order delivered</option>
@@ -789,10 +789,10 @@
 
                                 <td><input type="text" class="form-control" id="unit_price<%=line_no%>" name="unit_price<%=line_no%>" onchange="changeinput(<%=line_no%>)" style="text-align: right;" value="<%=unit_price_d%>" /></td>
                                 <td><input type="text" class="form-control" id="quantity<%=line_no%>" name="quantity<%=line_no%>" onchange="changeinput(<%=line_no%>)" style="text-align: right;" value="<%=qty%>" /></td>
-                                <td><input type="text" class="form-control" id="amount<%=line_no%>" name="amount<%=line_no%>" style="text-align: right;" value="<%=amt_d%>" readonly /></td>
+                                <td><input type="text" class="form-control" id="amount<%=line_no%>" name="amount<%=line_no%>" style="text-align: right;" value="<%=amt_d%>" readonly tabindex="-1"/></td>
                                 <td><input type="text" class="form-control" id="discount_per<%=line_no%>" name="discount_per<%=line_no%>" onchange="discount_changeper(<%=line_no%>)" style="text-align: right;" value="<%=dis_per%>" /></td>
                                 <td><input type="text" class="form-control" id="discountamt<%=line_no%>" name="discountamt<%=line_no%>" onchange="discount_changeamt(<%=line_no%>)" style="text-align: right;" value="<%=dis_amt_d%>" /></td>
-                                <td><input type="text" class="form-control" id="amount_after<%=line_no%>" name="amount_after<%=line_no%>" style="text-align: right;" value="<%=dis_a_amt_d%>" readonly /></td>
+                                <td><input type="text" class="form-control" id="amount_after<%=line_no%>" name="amount_after<%=line_no%>" style="text-align: right;" value="<%=dis_a_amt_d%>" readonly tabindex="-1" /></td>
                                 <td hidden><input type="text" id="qtd_id<%=line_no%>" name="qtd_id<%=line_no%>" style="text-align: right;" value="<%= qtd_id%>" readonly /></td>
                             </tr>
 

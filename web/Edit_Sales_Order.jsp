@@ -16,22 +16,6 @@
 <html>
     <head>
         <!-- Function can't click back -->
-         <script type="text/javascript">
-            function noBack(){
-                window.history.forward();
-            }
-             
-            noBack();
-            window.onload = noBack;
-            window.onpageshow = function(evt) { 
-                if (evt.persisted){ 
-                    noBack();
-                } 
-            };
-            window.onunload = function() { 
-                void (0); 
-            };
-        </script>
         
         
         <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
@@ -587,7 +571,7 @@
                 <button id="closebtn" class="closebtn" onclick="closeNav()">&#171; Hide Sidebar</button>
                 <button id="openbtn" class="openbtn" onclick="openNav()">&#187; Show Sidebar</button>
                 <h2 style=" text-align: left ;padding-left: 5px">Sales Order Entry</h2>
-                <form  method="post" action="Update_Sales_Order.jsp" class="normal_form">
+                <form  method="post" action="Update_Sales_Order.jsp" class="normal_form" onsubmit="return alertconfirm();">
                     <table  class="myTable" align="center">
                         <tr><th>ID</th>
                             <td style="width: 35%;">
@@ -625,7 +609,7 @@
                             <th>Status</th>
 
                             <td>
-                                <select id="status" name="od_status" class="form-control" style="height:20%; display:inline; ">
+                                <select id="od_status" name="od_status" class="form-control" style="height:20%; display:inline; ">
                                     <option id="<%=od_status%>" value="<%=od_status%>" selected="" hidden > <%=od_status%> </option>
                                     <option value="Awaiting order">Awaiting order</option>
                                     <option value="Order in processing">Order in processing</option>
@@ -785,17 +769,17 @@
                             <tr>
                                 <td><input type="text" readonly style=" text-align: center" class="form-control" id="line<%=line_no%>" name="line<%=line_no%>" value="<%=line_no%>" />
                                     <input class="btn btn-danger" id="del_line<%=line_no%>" type="button" style="width:100%;" value="-" onclick="del_line(this);"/></td>
-                                <td><input type="text" class="form-control" id="selectPro<%=line_no%>" name="product<%=line_no%>" value="<%=item_no%>" required="" data-readonly style="width:70%; display:inline;" /><input class="btn btn-default" id="selectProButton<%=line_no%>" type="button" value="+" onclick="SelectProduct(<%=line_no%>)" style="width:30%;height:30%; display:inline;" />
+                                <td><input type="text" class="form-control" id="selectPro<%=line_no%>" name="product<%=line_no%>" value="<%=item_no%>" required="" readonly style="width:70%; display:inline;" /><input class="btn btn-default" id="selectProButton<%=line_no%>" type="button" value="+" onclick="SelectProduct(<%=line_no%>)" style="width:30%;height:30%; display:inline;" />
                                     <input type="text" class="form-control" id="selectPro_name<%=line_no%>" name="product_name<%=line_no%>" value="<%=item_name%>" readonly /></td>
                                 <td><input type="text" class="form-control" id="deshead<%=line_no%>" name="deshead<%=line_no%>" placeholder="Description Head" value="<%= deshead%>"  />
                                     <textarea class="form-control" id="description<%=line_no%>" name="description<%=line_no%>" onclick="SelectDes(<%=line_no%>)" readonly /><%=des%></textarea></td>
 
                                 <td><input type="text" class="form-control" id="unit_price<%=line_no%>" name="unit_price<%=line_no%>" onchange="changeinput(<%=line_no%>)" style="text-align: right;" value="<%=unit_price_d%>" /></td>
                                 <td><input type="text" class="form-control" id="quantity<%=line_no%>" name="quantity<%=line_no%>" onchange="changeinput(<%=line_no%>)" style="text-align: right;" value="<%=qty%>" /></td>
-                                <td><input type="text" class="form-control" id="amount<%=line_no%>" name="amount<%=line_no%>" style="text-align: right;" value="<%=amt_d%>" readonly /></td>
+                                <td><input type="text" class="form-control" id="amount<%=line_no%>" name="amount<%=line_no%>" style="text-align: right;" value="<%=amt_d%>" readonly tabindex="-1" /></td>
                                 <td><input type="text" class="form-control" id="discount_per<%=line_no%>" name="discount_per<%=line_no%>" onchange="discount_changeper(<%=line_no%>)" style="text-align: right;" value="<%=dis_per%>" /></td>
                                 <td><input type="text" class="form-control" id="discountamt<%=line_no%>" name="discountamt<%=line_no%>" onchange="discount_changeamt(<%=line_no%>)" style="text-align: right;" value="<%=dis_amt_d%>" /></td>
-                                <td><input type="text" class="form-control" id="amount_after<%=line_no%>" name="amount_after<%=line_no%>" style="text-align: right;" value="<%=dis_a_amt_d%>" readonly /></td>
+                                <td><input type="text" class="form-control" id="amount_after<%=line_no%>" name="amount_after<%=line_no%>" style="text-align: right;" value="<%=dis_a_amt_d%>" readonly tabindex="-1"/></td>
                                 <td hidden><input type="text" id="qtd_id<%=line_no%>" name="qtd_id<%=line_no%>" style="text-align: right;" value="<%= odd_id%>" readonly /></td>
                             </tr>
 
@@ -814,45 +798,45 @@
                     <table style=" margin-right: 3%"  align="right" >
                         <tr>
                             <th>Total without discounts and taxses : </th>
-                            <td style=" width: 30px"><input id="qt_amt_wotax" name="od_amt_wotax" value="<%=amt_wotax%>" readonly="" style="text-align: right;"></td>
+                            <td style=" width: 30px"><input id="qt_amt_wotax" name="od_amt_wotax" value="<%=amt_wotax%>" readonly="" tabindex="-1" style="text-align: right; border: none;"></td>
                             <td><span id="cur_sym1"></span></td>
                         </tr>
                         <tr>
                             <th style=" text-align: right">Discount : </th>
-                            <td style=" width: 30px"><input id="qt_discount" name="od_discount" value="<%=discount%>" readonly="" style="text-align: right;"></td>
+                            <td style=" width: 30px"><input id="qt_discount" name="od_discount" value="<%=discount%>" readonly=""  tabindex="-1" style="text-align: right; border: none;"></td>
                             <td><span id="cur_sym2"></span></td>
                         </tr>
                         <tr>
                             <th style=" text-align: right">Sub Total : </th>
-                            <td style=" width: 30px"><input id="qt_subtotal" name="od_subtotal" value="<%=subtotal%>" readonly="" style="text-align: right;" ></td>
+                            <td style=" width: 30px"><input id="qt_subtotal" name="od_subtotal" value="<%=subtotal%>" readonly="" tabindex="-1" style="text-align: right; border: none;" ></td>
                             <td><span id="cur_sym3"></span></td>
                         </tr>
                         <tr>
                             <th style=" text-align: right">Tax : </th>
-                            <td style=" width: 30px"><input id="qt_tax" name="od_tax" value="<%=crr_tax%>" readonly="" style="text-align: right;"></td>
+                            <td style=" width: 30px"><input id="qt_tax" name="od_tax" value="<%=crr_tax%>" readonly="" tabindex="-1" style="text-align: right;border: none;"></td>
                             <td>%</td>
                         </tr>
                         <tr>
                             <th style=" text-align: right">Vat : </th>
-                            <td style=" width: 30px"><input id="qt_vat" name="od_vat" value="<%=vat%>" readonly="" style="text-align: right;"></td>
+                            <td style=" width: 30px"><input id="qt_vat" name="od_vat" value="<%=vat%>" readonly="" tabindex="-1" style="text-align: right;border: none;"></td>
                             <td><span id="cur_sym4"></span></td>
                         </tr>
                         <tr>
                             <th style=" text-align: right">Total Amount : </th>
-                            <td style=" width: 30px"><input id="qt_amt" name="od_amt" value="<%=od_amt_d%>" readonly="" style="text-align: right;"></td>
+                            <td style=" width: 30px"><input id="qt_amt" name="od_amt" value="<%=od_amt_d%>" readonly="" tabindex="-1" style="text-align: right;border: none;"></td>
                             <td><span id="cur_sym5"></span></td>
                         </tr>
                         <input id="save_counter" name="save_counter" hidden>
                         <input id="save_line" hidden>
                     </table>
 
-                    <table  style="margin-left:5%;">
+                    <table  style="margin-left:5%;width: 90%;" >
                         <tr><div class="form-submit">
-                            <td><button class="btn btn-primary" id="submit" name="Save" type="submit" value="Save">Save</button></td>
-                            <td><button class="btn btn-danger" id="back" name="Back" type="button" onclick="goBack()">Back</button></td>
+                            <td><button style="float:left;" class="btn btn-danger" id="back" name="Back" type="button" onclick="goBack()">Cancel</button></td>
+                            <td><button style="float:right;" class="btn btn-primary" id="submit" name="Save" type="submit" value="Save">Save</button></td>
                         </div>
                         </tr>
-                    </table>            
+                    </table>           
 
                 </form>
 
