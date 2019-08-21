@@ -97,7 +97,7 @@ WHERE
 					<subreportParameterExpression><![CDATA[$F{QTD_DES_HEAD}]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "show_product.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "show_product_qt.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
 	</detail>

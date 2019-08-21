@@ -452,8 +452,8 @@
                                             <button style=" width: 100%; text-align: left; padding-left: 20px;" type="submit" class="btn btn-light " onclick="deletet('<%=str_od_id%>')">Delete</button>
                                         </li>
                                         <li>
-                                            <form target="_blank" action="Print_Quotation.jsp">
-                                                <input type="text" name="qtid" hidden="" value="<%=resultSet.getString("OD_ID")%>">
+                                            <form target="_blank" action="Print_Sales_Order.jsp">
+                                                <input type="text" name="odid" hidden="" value="<%=resultSet.getString("OD_ID")%>">
                                                 <button style=" width: 100%; text-align: left; padding-left: 20px;" type="submit" class="btn btn-light">Print List</button>
 
 

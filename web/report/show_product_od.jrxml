@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="quotation3_test_subreport1_subreport2" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="18282376-bbee-4104-b7b9-51c35550aa47">
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="46300a0d-2291-4573-b026-dc460095a5a7"/>
+	<parameter name="od_id_2" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["..\\report\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="odd_des_head" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     product.`ITEM_NAME_EN` AS product_ITEM_NAME_EN,
+     od_detail.`ODD_ITEM_NO` AS od_detail_ODD_ITEM_NO,
+     od_detail.`ODD_DES_HEAD` AS od_detail_ODD_DES_HEAD,
+     od_detail.`ODD_DEST` AS od_detail_ODD_DEST,
+     od_detail.`ODD_UNIT_PRICE` AS od_detail_ODD_UNIT_PRICE,
+     od_detail.`ODD_QTY` AS od_detail_ODD_QTY,
+     od_detail.`ODD_AMT` AS od_detail_ODD_AMT,
+     od_detail.`ODD_DISC_PERCENT` AS od_detail_ODD_DISC_PERCENT,
+     od_detail.`ODD_DISC_AMOUNT` AS od_detail_ODD_DISC_AMOUNT,
+     od_detail.`ODD_AMT_A_DISC` AS od_detail_ODD_AMT_A_DISC,
+     currency.`CRR_SYM` AS currency_CRR_SYM,
+     currency.`CURR_CD` AS currency_CURR_CD,
+     od_head.`OD_ID` AS od_head_OD_ID,
+     od_head.`OD_NO` AS od_head_OD_NO
+FROM
+     `product` product INNER JOIN `od_detail` od_detail ON product.`ITEM_NO` = od_detail.`ODD_ITEM_NO`
+     INNER JOIN `od_head` od_head ON od_detail.`ODD_OD_ID` = od_head.`OD_ID`
+     INNER JOIN `currency` currency ON od_head.`OD_CUR_ID` = currency.`CRR_ID`
+     AND currency.`CRR_ID` = product.`CURR_ID`
+WHERE
+     od_head.`OD_ID` = $P{od_id_2}
+     and od_detail.ODD_DES_HEAD = $P{odd_des_head}]]>
+	</queryString>
+	<field name="product_ITEM_NAME_EN" class="java.lang.String"/>
+	<field name="od_detail_ODD_ITEM_NO" class="java.lang.String"/>
+	<field name="od_detail_ODD_DES_HEAD" class="java.lang.String"/>
+	<field name="od_detail_ODD_DEST" class="java.lang.String"/>
+	<field name="od_detail_ODD_UNIT_PRICE" class="java.math.BigDecimal"/>
+	<field name="od_detail_ODD_QTY" class="java.lang.Integer"/>
+	<field name="od_detail_ODD_AMT" class="java.math.BigDecimal"/>
+	<field name="od_detail_ODD_DISC_PERCENT" class="java.math.BigDecimal"/>
+	<field name="od_detail_ODD_DISC_AMOUNT" class="java.math.BigDecimal"/>
+	<field name="od_detail_ODD_AMT_A_DISC" class="java.math.BigDecimal"/>
+	<field name="currency_CRR_SYM" class="java.lang.String"/>
+	<field name="currency_CURR_CD" class="java.lang.String"/>
+	<field name="od_head_OD_ID" class="java.lang.Long"/>
+	<field name="od_head_OD_NO" class="java.lang.String"/>
+	<detail>
+		<band height="12" splitType="Stretch">
+			<staticText>
+				<reportElement style="table" stretchType="RelativeToTallestObject" mode="Opaque" x="15" y="0" width="220" height="12" backcolor="#FFFFFF" uuid="58ac29d7-cb48-497f-85fb-0e886bc3dbbb"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" isPrintRepeatedValues="false" mode="Transparent" x="20" y="0" width="215" height="12" isRemoveLineWhenBlank="true" uuid="44d3ea44-15c7-4986-a62e-a0fddcb2ca46"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{product_ITEM_NAME_EN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="table" stretchType="RelativeToBandHeight" mode="Opaque" x="288" y="0" width="90" height="12" backcolor="#FFFFFF" uuid="d8c26fc8-69ed-46ea-a6ea-957f52f0d00c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table" stretchType="RelativeToBandHeight" mode="Opaque" x="442" y="0" width="97" height="12" backcolor="#FFFFFF" uuid="e47bfaf2-b0ea-404e-898a-c8fe807054c2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table" stretchType="RelativeToBandHeight" mode="Opaque" x="378" y="0" width="64" height="12" backcolor="#FFFFFF" uuid="d24ff5df-7cac-471b-9ec2-d6514c75239c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[T]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table" stretchType="RelativeToBandHeight" mode="Opaque" x="235" y="0" width="53" height="12" backcolor="#FFFFFF" uuid="3cce6341-f9a4-451f-a5c0-d7165f540f67"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement stretchType="RelativeToBandHeight" x="311" y="0" width="61" height="12" uuid="e2c02a5a-18b3-44ea-beed-bcb3bbbce9e1"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{od_detail_ODD_UNIT_PRICE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="288" y="0" width="26" height="12" uuid="71d209c5-81ff-4ee7-a0b9-69867d9384e4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{currency_CURR_CD}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement stretchType="RelativeToBandHeight" x="465" y="0" width="61" height="12" uuid="01381b83-aaa9-4b04-bc20-305cc6b4daef"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{od_detail_ODD_AMT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="235" y="0" width="53" height="12" uuid="fc24358f-42fc-46ed-b956-ebe21a3238da"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{od_detail_ODD_QTY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="442" y="0" width="26" height="12" uuid="b48e5b98-7f7e-4b46-9461-37914db9d321"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{currency_CURR_CD}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="12">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="12" uuid="180f0d06-fec6-4a97-b60b-94887dd881d1"/>
+				<subreportParameter name="odd_item_no">
+					<subreportParameterExpression><![CDATA[$F{od_detail_ODD_ITEM_NO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="od_id_3">
+					<subreportParameterExpression><![CDATA[$F{od_head_OD_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="odd_des_head">
+					<subreportParameterExpression><![CDATA[$F{od_detail_ODD_DES_HEAD}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "show_description_od.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>
