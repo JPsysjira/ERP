@@ -553,7 +553,7 @@
                 <form  method="post" action="Insert_Sales_Order.jsp" class="normal_form">
                     <table class="myTable" align="center">
                         <!--                        <tr><th style="padding-left:40px;">ID</th>
-                        -->                         <input hidden="" class=" form-control" type="text" name="od_qt_id" value="0"/><!--
+                        -->                         <input hidden="" class=" form-control" type="text" name="od_qt_id" value=""/><!--
                                                     <td></td>
                                                     <td></td>
                                                 </tr>-->
@@ -619,7 +619,7 @@
                             <td></td>
                             <th>Payment Status</th>
                             <td>
-                                <select id="od_status" name="od_status" class="form-control" style="height:20%; display:inline; ">
+                                <select id="od_status" name="od_pay_stat" class="form-control" style="height:20%; display:inline; ">
                                     <option value="Transaction incomplete">Transaction incomplete</option>
                                     <option value="Awaiting payment">Awaiting payment</option>
                                     <option value="Payment completed">Payment completed</option>

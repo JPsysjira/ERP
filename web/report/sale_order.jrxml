@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report3" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="79cae15d-27e5-44a1-87d7-52d8bd62812e">
 	<property name="ireport.zoom" value="2.0"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="74"/>
 	<property name="ireport.y" value="144"/>
 	<style name="table">
 		<box>
@@ -24,39 +24,66 @@
 		</box>
 	</style>
 	<subDataset name="Table Dataset 1" uuid="52ef3d28-92cf-4985-9843-312e1ba3c8c8"/>
-	<parameter name="qt_id" class="java.lang.String"/>
+	<parameter name="od_id" class="java.lang.String"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["..\\report\\"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT
-     qt_detail.`QT_ID` AS qt_detail_QT_ID,
-     qt_detail.`QTD_ITEM_NO` AS qt_detail_QTD_ITEM_NO,
-     qt_detail.`QTD_QTY` AS qt_detail_QTD_QTY,
-     qh2.`QT_ID` AS qh2_QT_ID,
-     qh2.`QT_NO` AS qh2_QT_NO,
-     qh2.`QT_CUST_ID` AS qh2_QT_CUST_ID,
-     qh2.`QT_CONTACT` AS qh2_QT_CONTACT,
-     qh2.`QT_CONT_TEL` AS qh2_QT_CONT_TEL,
-     qh2.`QT_NAME` AS qh2_QT_NAME,
-     qh2.`QT_STATS` AS qh2_QT_STATS,
-     qh2.`QT_DATE` AS qh2_QT_DATE,
-     qh2.`QT_VALID` AS qh2_QT_VALID,
-     qh2.`QT_CRE_DATE` AS qh2_QT_CRE_DATE,
-     qh2.`QT_CRE_TIME` AS qh2_QT_CRE_TIME,
-     qh2.`QT_EXP_DATE` AS qh2_QT_EXP_DATE,
-     qh2.`QT_COMM` AS qh2_QT_COMM,
-     qh2.`QT_VALID_TERM` AS qh2_QT_VALID_TERM,
-     qh2.`QT_DELIVERY_TERM` AS qh2_QT_DELIVERY_TERM,
-     qh2.`QT_PAYMENT_TERM` AS qh2_QT_PAYMENT_TERM,
-     qh2.`QT_AMT` AS qh2_QT_AMT,
-     qh2.`QT_AMT_WOTAX` AS qh2_QT_AMT_WOTAX,
-     qh2.`QT_DISCOUNT` AS qh2_QT_DISCOUNT,
-     qh2.`QT_SUBTOTAL` AS qh2_QT_SUBTOTAL,
-     customer.`CUST_CD` AS customer_CUST_CD,
+     od_detail.`ODD_ID` AS od_detail_ODD_ID,
+     od_detail.`ODD_OD_ID` AS od_detail_ODD_OD_ID,
+     od_detail.`ODD_LINENO` AS od_detail_ODD_LINENO,
+     od_detail.`ODD_ITEM_NO` AS od_detail_ODD_ITEM_NO,
+     od_detail.`ODD_DES_HEAD` AS od_detail_ODD_DES_HEAD,
+     od_detail.`ODD_DEST` AS od_detail_ODD_DEST,
+     od_detail.`ODD_UNIT_PRICE` AS od_detail_ODD_UNIT_PRICE,
+     od_detail.`ODD_QTY` AS od_detail_ODD_QTY,
+     od_detail.`ODD_AMT` AS od_detail_ODD_AMT,
+     od_detail.`ODD_DISC_PERCENT` AS od_detail_ODD_DISC_PERCENT,
+     od_detail.`ODD_DISC_AMOUNT` AS od_detail_ODD_DISC_AMOUNT,
+     od_detail.`ODD_AMT_A_DISC` AS od_detail_ODD_AMT_A_DISC,
+     od_head.`OD_ID` AS od_head_OD_ID,
+     od_head.`OD_NO` AS od_head_OD_NO,
+     od_head.`OD_CUST_ID` AS od_head_OD_CUST_ID,
+     od_head.`OD_CONTACT` AS od_head_OD_CONTACT,
+     od_head.`OD_CONT_TEL` AS od_head_OD_CONT_TEL,
+     od_head.`OD_NAME` AS od_head_OD_NAME,
+     od_head.`OD_ODATE` AS od_head_OD_ODATE,
+     od_head.`OD_STATS` AS od_head_OD_STATS,
+     od_head.`OD_PAY_STAT` AS od_head_OD_PAY_STAT,
+     od_head.`OD_CUR_ID` AS od_head_OD_CUR_ID,
+     od_head.`OD_CRE_DATE` AS od_head_OD_CRE_DATE,
+     od_head.`OD_CRE_TIME` AS od_head_OD_CRE_TIME,
+     od_head.`OD_FLG1` AS od_head_OD_FLG1,
+     od_head.`OD_USER_ID` AS od_head_OD_USER_ID,
+     od_head.`OD_COMM` AS od_head_OD_COMM,
+     od_head.`OD_DELIVERY_DATE` AS od_head_OD_DELIVERY_DATE,
+     od_head.`OD_PAY_DATE` AS od_head_OD_PAY_DATE,
+     od_head.`OD_AMT` AS od_head_OD_AMT,
+     od_head.`OD_AMT_WOTAX` AS od_head_OD_AMT_WOTAX,
+     od_head.`OD_DISCOUNT` AS od_head_OD_DISCOUNT,
+     od_head.`OD_SUBTOTAL` AS od_head_OD_SUBTOTAL,
+     od_head.`OD_VAT` AS od_head_OD_VAT,
+     company.`COMP_NAME_EN` AS company_COMP_NAME_EN,
+     company.`COMP_NAME` AS company_COMP_NAME,
+     company.`TEL` AS company_TEL,
+     company.`EMAIL` AS company_EMAIL,
+     company.`WEBSITE` AS company_WEBSITE,
+     company.`ADDR1` AS company_ADDR1,
+     company.`ADDR2` AS company_ADDR2,
+     company.`ADDR_ZIP` AS company_ADDR_ZIP,
+     company.`ADDR_COUNT` AS company_ADDR_COUNT,
+     company.`TAX_ID` AS company_TAX_ID,
+     currency.`CRR_NAME` AS currency_CRR_NAME,
+     currency.`CURR_CD` AS currency_CURR_CD,
+     currency.`CRR_SYM` AS currency_CRR_SYM,
+     currency.`CRR_TAX` AS currency_CRR_TAX,
+     customer.`CUST_ID` AS customer_CUST_ID,
      customer.`CUST_NAME_EN` AS customer_CUST_NAME_EN,
      customer.`CUST_NAME` AS customer_CUST_NAME,
      customer.`TEL` AS customer_TEL,
+     customer.`EMAIL` AS customer_EMAIL,
+     customer.`WEBSITE` AS customer_WEBSITE,
      customer.`ADDR_ST` AS customer_ADDR_ST,
      customer.`ADDR_SU` AS customer_ADDR_SU,
      customer.`ADDR_CITY` AS customer_ADDR_CITY,
@@ -65,73 +92,75 @@
      customer.`ADDR_ZIP` AS customer_ADDR_ZIP,
      customer.`ADDR_COUNT` AS customer_ADDR_COUNT,
      customer.`TAX_ID` AS customer_TAX_ID,
-     userm.`USER_NAME_EN` AS userm_USER_NAME_EN,
-     cur.`CRR_SYM` AS cur_CRR_SYM,
-     cur.`CRR_NAME` AS cur_CRR_NAME,
-     cur.`CRR_TAX` AS cur_CRR_TAX,
-     comp.`COMP_NAME_EN` AS comp_COMP_NAME_EN,
-     comp.`COMP_NAME` AS comp_COMP_NAME,
-     comp.`TEL` AS comp_TEL,
-     comp.`EMAIL` AS comp_EMAIL,
-     comp.`WEBSITE` AS comp_WEBSITE,
-     comp.`ADDR1` AS comp_ADDR1,
-     comp.`ADDR2` AS comp_ADDR2,
-     comp.`ADDR_ZIP` AS comp_ADDR_ZIP,
-     comp.`ADDR_COUNT` AS comp_ADDR_COUNT,
-     comp.`TAX_ID` AS comp_TAX_ID,
+     customer.`ED_NAME` AS customer_ED_NAME,
      product.`ITEM_NAME_EN` AS product_ITEM_NAME_EN,
-     product.`ITEM_NAME_TH` AS product_ITEM_NAME_TH,
-     product.`SIZE` AS product_SIZE,
-     product.`SPEC` AS product_SPEC,
-     product.`CUST_ID` AS product_CUST_ID,
-     product.`CURR_ID` AS product_CURR_ID,
-     product.`ST_PRICE` AS product_ST_PRICE,
-     product.`MT_UNIT_PRICE` AS product_MT_UNIT_PRICE,
-     product.`PROC_PRICE` AS product_PROC_PRICE,
-     cur.`CURR_CD` AS cur_CURR_CD,
-     qt_detail.`QTD_UNIT_PRICE` AS qt_detail_QTD_UNIT_PRICE,
-     qt_detail.`QTD_AMT` AS qt_detail_QTD_AMT,
-     qh2.`QT_VAT` AS qh2_QT_VAT,
-     qt_detail.`QTD_DEST` AS qt_detail_QTD_DEST,
-     userm.`USER_NAME` AS userm_USER_NAME,
-     qt_detail.`FLG1` AS qt_detail_FLG1
+     user_master.`USER_NAME_EN` AS user_master_USER_NAME_EN,
+     user_master.`USER_NAME` AS user_master_USER_NAME,
+     od_detail.`ODD_OD_ID` AS od_detail_ODD_OD_ID
 FROM
-     `qt_detail` qt_detail INNER JOIN `erp1`.`qt_head` qh2 ON qt_detail.`QT_ID` = qh2.`QT_ID`
-     INNER JOIN `erp1`.`customer` customer ON qh2.`QT_CUST_ID` = customer.`CUST_ID`
-     INNER JOIN `erp1`.`user_master` userm ON qh2.`QT_USER_ID` = userm.`USER_ID`
-     INNER JOIN `erp1`.`currency` cur ON qh2.`QT_CRR_ID` = cur.`CRR_ID`
-     INNER JOIN `erp1`.`company` comp ON userm.`COMP_CD` = comp.`COMP_CD`
-     INNER JOIN `product` product ON qt_detail.`QTD_ITEM_NO` = product.`ITEM_NO`
+    `erp1`.`od_detail` od_detail INNER JOIN `erp1`.`od_head` od_head ON od_detail.`ODD_OD_ID` = od_head.`OD_ID`
+     INNER JOIN `erp1`.`customer` customer ON od_head.`OD_CUST_ID` = customer.`CUST_ID`
+     INNER JOIN `erp1`.`user_master` user_master ON od_head.`OD_USER_ID` = user_master.`USER_ID`
+     INNER JOIN `erp1`.`currency` currency ON od_head.`OD_CUR_ID` = currency.`CRR_ID`
+     INNER JOIN `erp1`.`company` company ON user_master.`COMP_CD` = company.`COMP_CD`
+     INNER JOIN `erp1`.`product` product ON od_detail.`ODD_ITEM_NO` = product.`ITEM_NO`
 WHERE
-     qh2.`QT_ID` = $P{qt_id}]]>
+     od_head.`OD_ID` = $P{od_id};]]>
 	</queryString>
-	<field name="qt_detail_QT_ID" class="java.lang.Long"/>
-	<field name="qt_detail_QTD_ITEM_NO" class="java.lang.String"/>
-	<field name="qt_detail_QTD_QTY" class="java.lang.Integer"/>
-	<field name="qh2_QT_ID" class="java.lang.Long"/>
-	<field name="qh2_QT_NO" class="java.lang.String"/>
-	<field name="qh2_QT_CUST_ID" class="java.lang.Integer"/>
-	<field name="qh2_QT_CONTACT" class="java.lang.String"/>
-	<field name="qh2_QT_CONT_TEL" class="java.lang.String"/>
-	<field name="qh2_QT_NAME" class="java.lang.String"/>
-	<field name="qh2_QT_STATS" class="java.lang.String"/>
-	<field name="qh2_QT_DATE" class="java.sql.Date"/>
-	<field name="qh2_QT_VALID" class="java.sql.Date"/>
-	<field name="qh2_QT_CRE_DATE" class="java.sql.Date"/>
-	<field name="qh2_QT_CRE_TIME" class="java.sql.Time"/>
-	<field name="qh2_QT_EXP_DATE" class="java.sql.Date"/>
-	<field name="qh2_QT_COMM" class="java.lang.String"/>
-	<field name="qh2_QT_VALID_TERM" class="java.lang.String"/>
-	<field name="qh2_QT_DELIVERY_TERM" class="java.lang.String"/>
-	<field name="qh2_QT_PAYMENT_TERM" class="java.lang.String"/>
-	<field name="qh2_QT_AMT" class="java.math.BigDecimal"/>
-	<field name="qh2_QT_AMT_WOTAX" class="java.math.BigDecimal"/>
-	<field name="qh2_QT_DISCOUNT" class="java.math.BigDecimal"/>
-	<field name="qh2_QT_SUBTOTAL" class="java.math.BigDecimal"/>
-	<field name="customer_CUST_CD" class="java.lang.String"/>
+	<field name="od_detail_ODD_ID" class="java.lang.Long"/>
+	<field name="od_detail_ODD_OD_ID" class="java.lang.Long"/>
+	<field name="od_detail_ODD_LINENO" class="java.lang.Integer"/>
+	<field name="od_detail_ODD_ITEM_NO" class="java.lang.String"/>
+	<field name="od_detail_ODD_DES_HEAD" class="java.lang.String"/>
+	<field name="od_detail_ODD_DEST" class="java.lang.String"/>
+	<field name="od_detail_ODD_UNIT_PRICE" class="java.math.BigDecimal"/>
+	<field name="od_detail_ODD_QTY" class="java.lang.Integer"/>
+	<field name="od_detail_ODD_AMT" class="java.math.BigDecimal"/>
+	<field name="od_detail_ODD_DISC_PERCENT" class="java.math.BigDecimal"/>
+	<field name="od_detail_ODD_DISC_AMOUNT" class="java.math.BigDecimal"/>
+	<field name="od_detail_ODD_AMT_A_DISC" class="java.math.BigDecimal"/>
+	<field name="od_head_OD_ID" class="java.lang.Long"/>
+	<field name="od_head_OD_NO" class="java.lang.String"/>
+	<field name="od_head_OD_CUST_ID" class="java.lang.Integer"/>
+	<field name="od_head_OD_CONTACT" class="java.lang.String"/>
+	<field name="od_head_OD_CONT_TEL" class="java.lang.String"/>
+	<field name="od_head_OD_NAME" class="java.lang.String"/>
+	<field name="od_head_OD_ODATE" class="java.sql.Date"/>
+	<field name="od_head_OD_STATS" class="java.lang.String"/>
+	<field name="od_head_OD_PAY_STAT" class="java.lang.String"/>
+	<field name="od_head_OD_CUR_ID" class="java.lang.Integer"/>
+	<field name="od_head_OD_CRE_DATE" class="java.sql.Date"/>
+	<field name="od_head_OD_CRE_TIME" class="java.sql.Time"/>
+	<field name="od_head_OD_FLG1" class="java.lang.Integer"/>
+	<field name="od_head_OD_USER_ID" class="java.lang.Long"/>
+	<field name="od_head_OD_COMM" class="java.lang.String"/>
+	<field name="od_head_OD_DELIVERY_DATE" class="java.sql.Date"/>
+	<field name="od_head_OD_PAY_DATE" class="java.sql.Date"/>
+	<field name="od_head_OD_AMT" class="java.math.BigDecimal"/>
+	<field name="od_head_OD_AMT_WOTAX" class="java.math.BigDecimal"/>
+	<field name="od_head_OD_DISCOUNT" class="java.math.BigDecimal"/>
+	<field name="od_head_OD_SUBTOTAL" class="java.math.BigDecimal"/>
+	<field name="od_head_OD_VAT" class="java.math.BigDecimal"/>
+	<field name="company_COMP_NAME_EN" class="java.lang.String"/>
+	<field name="company_COMP_NAME" class="java.lang.String"/>
+	<field name="company_TEL" class="java.lang.String"/>
+	<field name="company_EMAIL" class="java.lang.String"/>
+	<field name="company_WEBSITE" class="java.lang.String"/>
+	<field name="company_ADDR1" class="java.lang.String"/>
+	<field name="company_ADDR2" class="java.lang.String"/>
+	<field name="company_ADDR_ZIP" class="java.lang.String"/>
+	<field name="company_ADDR_COUNT" class="java.lang.String"/>
+	<field name="company_TAX_ID" class="java.lang.String"/>
+	<field name="currency_CRR_NAME" class="java.lang.String"/>
+	<field name="currency_CURR_CD" class="java.lang.String"/>
+	<field name="currency_CRR_SYM" class="java.lang.String"/>
+	<field name="currency_CRR_TAX" class="java.math.BigDecimal"/>
+	<field name="customer_CUST_ID" class="java.lang.Integer"/>
 	<field name="customer_CUST_NAME_EN" class="java.lang.String"/>
 	<field name="customer_CUST_NAME" class="java.lang.String"/>
 	<field name="customer_TEL" class="java.lang.String"/>
+	<field name="customer_EMAIL" class="java.lang.String"/>
+	<field name="customer_WEBSITE" class="java.lang.String"/>
 	<field name="customer_ADDR_ST" class="java.lang.String"/>
 	<field name="customer_ADDR_SU" class="java.lang.String"/>
 	<field name="customer_ADDR_CITY" class="java.lang.String"/>
@@ -140,36 +169,10 @@ WHERE
 	<field name="customer_ADDR_ZIP" class="java.lang.String"/>
 	<field name="customer_ADDR_COUNT" class="java.lang.String"/>
 	<field name="customer_TAX_ID" class="java.lang.String"/>
-	<field name="userm_USER_NAME_EN" class="java.lang.String"/>
-	<field name="cur_CRR_SYM" class="java.lang.String"/>
-	<field name="cur_CRR_NAME" class="java.lang.String"/>
-	<field name="cur_CRR_TAX" class="java.math.BigDecimal"/>
-	<field name="comp_COMP_NAME_EN" class="java.lang.String"/>
-	<field name="comp_COMP_NAME" class="java.lang.String"/>
-	<field name="comp_TEL" class="java.lang.String"/>
-	<field name="comp_EMAIL" class="java.lang.String"/>
-	<field name="comp_WEBSITE" class="java.lang.String"/>
-	<field name="comp_ADDR1" class="java.lang.String"/>
-	<field name="comp_ADDR2" class="java.lang.String"/>
-	<field name="comp_ADDR_ZIP" class="java.lang.String"/>
-	<field name="comp_ADDR_COUNT" class="java.lang.String"/>
-	<field name="comp_TAX_ID" class="java.lang.String"/>
+	<field name="customer_ED_NAME" class="java.lang.String"/>
 	<field name="product_ITEM_NAME_EN" class="java.lang.String"/>
-	<field name="product_ITEM_NAME_TH" class="java.lang.String"/>
-	<field name="product_SIZE" class="java.lang.String"/>
-	<field name="product_SPEC" class="java.lang.String"/>
-	<field name="product_CUST_ID" class="java.lang.Integer"/>
-	<field name="product_CURR_ID" class="java.lang.Integer"/>
-	<field name="product_ST_PRICE" class="java.math.BigDecimal"/>
-	<field name="product_MT_UNIT_PRICE" class="java.math.BigDecimal"/>
-	<field name="product_PROC_PRICE" class="java.math.BigDecimal"/>
-	<field name="cur_CURR_CD" class="java.lang.String"/>
-	<field name="qt_detail_QTD_UNIT_PRICE" class="java.math.BigDecimal"/>
-	<field name="qt_detail_QTD_AMT" class="java.math.BigDecimal"/>
-	<field name="qh2_QT_VAT" class="java.math.BigDecimal"/>
-	<field name="qt_detail_QTD_DEST" class="java.lang.String"/>
-	<field name="userm_USER_NAME" class="java.lang.String"/>
-	<field name="qt_detail_FLG1" class="java.lang.Integer"/>
+	<field name="user_master_USER_NAME_EN" class="java.lang.String"/>
+	<field name="user_master_USER_NAME" class="java.lang.String"/>
 	<title>
 		<band height="233" splitType="Stretch">
 			<staticText>
@@ -177,42 +180,42 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="24" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Quotation]]></text>
+				<text><![CDATA[Order]]></text>
 			</staticText>
 			<textField pattern="dd-MMM-yyyy">
 				<reportElement x="406" y="96" width="124" height="12" uuid="346e4786-7642-454d-84cf-83efe9be1b7d"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{qh2_QT_VALID}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{od_head_OD_ODATE}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="406" y="80" width="124" height="12" uuid="378f67b6-4045-441c-8ee5-b68a25507048"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{qh2_QT_NO}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{od_head_OD_NO}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="290" y="96" width="109" height="12" uuid="d4c18472-36cc-40ce-b9d6-2d047d2a6a62"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Quotation # ]]></text>
+				<text><![CDATA[Order Date : ]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="290" y="80" width="109" height="12" uuid="57d446d6-5e60-41de-abcb-7b4a0ded1677"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
-				<text><![CDATA[DATE : ]]></text>
+				<text><![CDATA[Order No : ]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="290" y="112" width="109" height="12" uuid="4e81b073-9c03-4b4a-9c6f-aa2d12688e7a"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Quotation valid untill : ]]></text>
+				<text><![CDATA[Delivery Date : ]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="290" y="64" width="109" height="12" uuid="42a70b87-e515-4785-88f5-f3b64ce0a85d"/>
@@ -226,21 +229,21 @@ WHERE
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{qh2_QT_DATE}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{od_head_OD_DELIVERY_DATE}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="290" y="128" width="109" height="12" uuid="880dc00d-70fd-419c-8494-f81ca35ff5c8"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Prepared by : ]]></text>
+				<text><![CDATA[Payment Date : ]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="406" y="64" width="124" height="12" uuid="acf2a78f-ee9f-4033-84e6-b235c0a14028"/>
 				<textElement verticalAlignment="Bottom">
 					<font fontName="Arial" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{customer_CUST_CD}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{customer_CUST_ID}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement positionType="Float" x="15" y="160" width="175" height="12" isRemoveLineWhenBlank="true" uuid="cde76939-630d-46c6-8957-8811410d40e1"/>
@@ -250,18 +253,18 @@ WHERE
 				<textFieldExpression><![CDATA[$F{customer_ADDR_ST}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="15" y="124" width="75" height="12" uuid="75f25c97-5b87-4226-86fc-5750eec1daac"/>
+				<reportElement x="15" y="124" width="57" height="12" uuid="75f25c97-5b87-4226-86fc-5750eec1daac"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Quotation For : ]]></text>
+				<text><![CDATA[Order For : ]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="59" y="136" width="158" height="12" uuid="4bdeb9d4-dbda-4601-bdb2-0ac939479e05"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{qh2_QT_CONTACT}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{od_head_OD_CONTACT}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="15" y="184" width="57" height="12" uuid="79e24ae9-a328-4300-abbb-41e11f3f43f4"/>
@@ -282,7 +285,7 @@ WHERE
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{comp_TAX_ID}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{company_TAX_ID}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="163" y="172" width="41" height="12" uuid="6e485a12-c2e6-40aa-b605-1e496b8a3156"/>
@@ -292,7 +295,7 @@ WHERE
 				<text><![CDATA[Phone  : ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="204" y="184" width="113" height="12" uuid="07582013-3e69-45e2-b2b8-32c2a939cd9a"/>
+				<reportElement x="204" y="184" width="115" height="12" uuid="07582013-3e69-45e2-b2b8-32c2a939cd9a"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 				</textElement>
@@ -345,7 +348,7 @@ WHERE
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{comp_ADDR1}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{company_ADDR1}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="107" y="184" width="56" height="12" uuid="a9527e04-7f54-461d-9db1-3ace971b3399"/>
@@ -366,28 +369,28 @@ WHERE
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{comp_ADDR2}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{company_ADDR2}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="59" y="100" width="141" height="12" uuid="9262d702-df98-4be8-9ab3-01db5608c82a"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{comp_TEL}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{company_TEL}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="204" y="172" width="115" height="12" uuid="c4d8bf31-09fe-4736-a8d8-00db868aea98"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{qh2_QT_CONT_TEL}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{od_head_OD_CONT_TEL}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="90" y="124" width="181" height="12" uuid="fee8842d-4ee1-464e-a86a-eebe926cdc22"/>
+				<reportElement x="72" y="124" width="199" height="12" uuid="fee8842d-4ee1-464e-a86a-eebe926cdc22"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{qh2_QT_NAME}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{od_head_OD_NAME}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="15" y="100" width="44" height="12" uuid="36a007c1-ba0c-4d18-a4a2-5a927619d0bb"/>
@@ -450,26 +453,41 @@ WHERE
 				<textElement>
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{comp_COMP_NAME_EN}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{company_COMP_NAME_EN}]]></textFieldExpression>
 			</textField>
 			<image>
 				<reportElement x="16" y="0" width="163" height="52" uuid="34f43036-7070-4c74-82ee-da1775b2841b"/>
 				<imageExpression><![CDATA["..\\report\\jpsLogo.png"]]></imageExpression>
 			</image>
-			<textField>
-				<reportElement x="406" y="128" width="124" height="12" uuid="a444af08-a98b-4dfc-9faf-e5940c4f6f49"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial"/>
+			<staticText>
+				<reportElement x="290" y="144" width="109" height="12" uuid="cfbd506c-5f2f-49b9-985a-0acc839eb544"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{userm_USER_NAME}]]></textFieldExpression>
+				<text><![CDATA[Prepared by : ]]></text>
+			</staticText>
+			<textField pattern="dd-MMM-yyyy">
+				<reportElement x="406" y="128" width="124" height="12" uuid="3688c5ca-0e35-4ed9-b4ea-cd0ef017d095"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{od_head_OD_PAY_DATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="406" y="144" width="124" height="12" uuid="fc81553f-94d5-4652-9811-7e88602f9a37"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{user_master_USER_NAME}]]></textFieldExpression>
 			</textField>
 			<subreport>
-				<reportElement x="0" y="221" width="555" height="12" uuid="13047c07-3e15-486c-b96e-86d02bb8688e"/>
-				<subreportParameter name="qt_id_1">
-					<subreportParameterExpression><![CDATA[$F{qh2_QT_ID}]]></subreportParameterExpression>
+				<reportElement x="0" y="221" width="555" height="12" uuid="a41e8379-8f5e-4584-b6fa-ec6187d7d843"/>
+				<subreportParameter name="SUBREPORT_DIR"/>
+				<subreportParameter name="od_id_1">
+					<subreportParameterExpression><![CDATA[$F{od_head_OD_ID}]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "show_description_head_qt.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "show_description_head_od.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
 	</title>
@@ -553,7 +571,7 @@ WHERE
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{cur_CRR_TAX}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{currency_CRR_TAX}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="528" y="24" width="11" height="12" uuid="abff2720-16a1-4225-beff-b8f7418c85da"/>
@@ -619,56 +637,35 @@ WHERE
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{qh2_QT_SUBTOTAL}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{od_head_OD_SUBTOTAL}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00">
 				<reportElement x="466" y="36" width="61" height="12" uuid="c309eaa7-eebe-40bf-91f7-6421fc22ac1a"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{qh2_QT_VAT}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{od_head_OD_VAT}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="442" y="60" width="26" height="12" uuid="26da4785-6e42-455c-b524-271b1695a8e6"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{cur_CURR_CD}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{currency_CURR_CD}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00">
 				<reportElement x="466" y="60" width="61" height="12" uuid="aa39f8d8-5998-475a-b4c7-44c18692cfaf"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{qh2_QT_AMT}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{od_head_OD_AMT}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="442" y="36" width="26" height="12" uuid="ac257915-e1c5-411d-ab65-fbdb38338e98"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{cur_CURR_CD}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="15" y="36" width="304" height="12" uuid="b0ccf731-77ce-41e6-9ccc-284890c84074"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{qh2_QT_PAYMENT_TERM}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="15" y="48" width="304" height="12" uuid="a030456a-349f-4a82-a336-d8d1c467acd1"/>
-				<textElement>
-					<font fontName="Arial"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{qh2_QT_DELIVERY_TERM}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="15" y="24" width="304" height="12" uuid="8a3f2c5b-c32e-4af1-818d-f8f62598065f"/>
-				<textElement>
-					<font fontName="Arial"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{qh2_QT_VALID_TERM}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{currency_CURR_CD}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement style="table" stretchType="RelativeToTallestObject" mode="Opaque" x="442" y="0" width="97" height="12" backcolor="#FFFFFF" uuid="b772a854-203d-4c32-ba24-313fa277a438"/>
@@ -710,21 +707,21 @@ WHERE
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{qh2_QT_DISCOUNT}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{od_head_OD_DISCOUNT}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="442" y="0" width="26" height="12" uuid="9a18a2d9-05c6-46d0-9353-fa79712e6dfd"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{cur_CURR_CD}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{currency_CURR_CD}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="442" y="12" width="26" height="12" uuid="cf52d907-85b5-4a73-a11b-fbe6e4bba94a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{cur_CURR_CD}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{currency_CURR_CD}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="20" y="0" width="215" height="12" uuid="c8128003-8093-4511-bba9-adfebedd060f"/>
@@ -733,13 +730,13 @@ WHERE
 				</textElement>
 				<text><![CDATA[Discount]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="15" y="60" width="304" height="12" uuid="ca6fdb3b-893f-4028-99b9-1a64f5899ab5"/>
+			<textField pattern="#,##0.00">
+				<reportElement x="15" y="24" width="304" height="12" uuid="565c48bb-e9f9-40a8-971b-ff82e8220ac6"/>
 				<textElement>
 					<font fontName="Arial"/>
 				</textElement>
-				<text><![CDATA[All charges will be subjected to 7% VAT]]></text>
-			</staticText>
+				<textFieldExpression><![CDATA[$F{od_head_OD_COMM}]]></textFieldExpression>
+			</textField>
 		</band>
 	</summary>
 </jasperReport>

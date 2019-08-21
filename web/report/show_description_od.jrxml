@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="quotation3_test_subreport1_subreport2_subreport1" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="dc6972df-56b4-4388-bfd0-b2517c37ecdf">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="5072476a-3aab-415f-bbb8-04c3e4483f34"/>
+	<parameter name="od_id_3" class="java.lang.String"/>
+	<parameter name="odd_des_head" class="java.lang.String"/>
+	<parameter name="odd_item_no" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT DISTINCT
+     (ODD_DES_HEAD),
+     od_detail.`ODD_ITEM_NO` AS od_detail_ODD_ITEM_NO,
+     od_detail.`ODD_DEST` AS od_detail_ODD_DEST
+FROM
+     `od_head` od_head INNER JOIN `od_detail` od_detail ON od_head.`OD_ID` = od_detail.`ODD_OD_ID`
+WHERE
+     od_head.`OD_ID` = $P{od_id_3}
+     and od_detail.ODD_DES_HEAD = $P{odd_des_head}
+     and od_detail.ODD_ITEM_NO = $P{odd_item_no}]]>
+	</queryString>
+	<field name="ODD_DES_HEAD" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="od_detail_ODD_ITEM_NO" class="java.lang.String"/>
+	<field name="od_detail_ODD_DEST" class="java.lang.String"/>
+	<detail>
+		<band height="12" splitType="Stretch">
+			<staticText>
+				<reportElement style="table" stretchType="RelativeToTallestObject" mode="Opaque" x="15" y="0" width="220" height="12" backcolor="#FFFFFF" uuid="88350fa7-cf68-4a8c-93f2-0af7891033cc"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="20" y="0" width="215" height="12" uuid="91fb5142-e0ed-4b03-800c-4146a6e95110"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{od_detail_ODD_DEST}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="table" stretchType="RelativeToBandHeight" mode="Opaque" x="235" y="0" width="53" height="12" backcolor="#FFFFFF" uuid="7428d3cb-5760-4f95-83ae-e7cd721625d8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table" stretchType="RelativeToBandHeight" mode="Opaque" x="378" y="0" width="64" height="12" backcolor="#FFFFFF" uuid="a5065729-5550-4d31-96e9-6f4618aa0328"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table" stretchType="RelativeToBandHeight" mode="Opaque" x="288" y="0" width="90" height="12" backcolor="#FFFFFF" uuid="92fc0f5d-724c-45bc-9d07-e48aff09ee0d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table" stretchType="RelativeToBandHeight" mode="Opaque" x="442" y="0" width="97" height="12" backcolor="#FFFFFF" uuid="212fca76-3552-4daf-857f-b963533b2769"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>
