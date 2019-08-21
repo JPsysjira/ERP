@@ -684,14 +684,14 @@
                             <td><input class=" form-control"  type="text" name="subject" value="<%=qt_name%>" required/></td>
                             <td></td>
                             <th>Delivery Date</th>
-                            <td><input class=" form-control"  type="date" name="od_delivery_date" value=""/></td>
+                            <td><input class=" form-control"  type="date" name="od_delivery_date" value="" required/></td>
                         </tr>
 
                         <tr><th>Comment</th>
                             <td><input class=" form-control"  type="text" name="comment" value="<%=qt_comm%>"/></td>
                             <td></td>
                             <th>Payment Date</th>
-                            <td><input  class=" form-control"  type="date" name="od_pay_date" value="" /></td>
+                            <td><input  class=" form-control"  type="date" name="od_pay_date" value="" required/></td>
                         </tr>
 
                         <tr><th>Currency</th>

@@ -619,7 +619,7 @@
                             <td></td>
                             <th>Payment Status</th>
                             <td>
-                                <select id="od_status" name="od_status" class="form-control" style="height:20%; display:inline; ">
+                                <select id="P_status" name="od_pay_stat" class="form-control" style="height:20%; display:inline; ">
                                     <option value="Transaction incomplete">Transaction incomplete</option>
                                     <option value="Awaiting payment">Awaiting payment</option>
                                     <option value="Payment completed">Payment completed</option>
@@ -642,14 +642,14 @@
                             <td><input class=" form-control" maxlength="50" type="text" name="subject" required/></td>
                             <td></td>
                             <th>Delivery Date</th>
-                            <td><input class=" form-control"  type="date" name="od_delivery_date"/></td>
+                            <td><input class=" form-control"  type="date" name="od_delivery_date" required/></td>
                         </tr>
 
                         <tr><th>Comment</th>
                             <td><input class=" form-control" maxlength="50" type="text" name="comment" /></td>
                             <td></td>
                             <th>Payment Date</th>
-                            <td><input  class=" form-control"  type="date" name="od_pay_date"/></td>
+                            <td><input  class=" form-control"  type="date" name="od_pay_date" required/></td>
                         </tr>
 
                         <tr><th>Currency</th>

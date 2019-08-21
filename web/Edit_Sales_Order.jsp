@@ -671,14 +671,14 @@
                             <td><input class=" form-control"  type="text" name="subject" value="<%=od_name%>" required/></td>
                             <td></td>
                             <th>Delivery Date</th>
-                            <td><input class=" form-control"  type="date" name="od_delivery_date" value="<%=od_delivery_date%>"/></td>
+                            <td><input class=" form-control"  type="date" name="od_delivery_date" value="<%=od_delivery_date%>" required /></td>
                         </tr>
 
                         <tr><th>Comment</th>
                             <td><input class=" form-control"  type="text" name="comment" value="<%=od_comm%>"/></td>
                             <td></td>
                             <th>Payment Date</th>
-                            <td><input  class=" form-control"  type="date" name="od_pay_date" value="<%=od_pay_date%>" /></td>
+                            <td><input  class=" form-control"  type="date" name="od_pay_date" value="<%=od_pay_date%>" required/></td>
                         </tr>
 
                         <tr><th>Currency</th>
