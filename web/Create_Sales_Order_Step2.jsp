@@ -688,7 +688,7 @@
                         </tr>
 
                         <tr><th>Comment</th>
-                            <td><input class=" form-control"  type="text" name="comment" value="<%=qt_comm%>"/></td>
+                            <td><textarea class=" form-control"  type="text" name="comment" value="<%=qt_comm%>" rows="3"/></textarea></td>
                             <td></td>
                             <th>Payment Date</th>
                             <td><input  class=" form-control"  type="date" name="od_pay_date" value="" required/></td>

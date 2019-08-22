@@ -646,7 +646,7 @@
                         </tr>
 
                         <tr><th>Comment</th>
-                            <td><input class=" form-control" maxlength="50" type="text" name="comment" /></td>
+                            <td><textarea class=" form-control" maxlength="50" type="text" name="comment" rows="3" /></textarea></td>
                             <td></td>
                             <th>Payment Date</th>
                             <td><input  class=" form-control"  type="date" name="od_pay_date" required/></td>
