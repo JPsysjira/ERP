@@ -588,12 +588,12 @@
                 <h2 style=" text-align: left ;padding-left: 5px">Sales Order Entry</h2>
                 <form  method="post" action="Insert_Sales_Order.jsp" class="normal_form">
                     <table  class="myTable" align="center">
-                        <tr><th>ID</th>
-                            <td style="width: 35%;">
-                                <input class=" form-control" name="od_qt_id" maxlength="20" type="text" value="<%=qt_id%>" readonly=""/>
-                            </td>
+<!--                        <tr><th>ID</th>
+                            <td style="width: 35%;">-->
+                                <input class=" form-control" name="od_qt_id" maxlength="20" type="text" value="<%=qt_id%>" readonly="" hidden/>
+<!--                            </td>
                             <td style="width: 2%;"></td>
-                        </tr>
+                        </tr>-->
 
 
 
