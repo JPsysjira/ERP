@@ -264,7 +264,7 @@
                     </tbody>
                 </table>
 <!--                    <input type='text' id='sel_pro' />-->
-                
+                    <button style="float:left; margin-right: 5%;" onclick="window.closed" class="btn btn-danger">Cancel</button>
                     <button style="float:right; margin-right: 5%;" class="btn btn-success" id="buttontable">Select</button>
                 <!--<input type="button" value="Select" onclick="SetName();" />-->
                 <% 

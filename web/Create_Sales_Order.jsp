@@ -542,17 +542,19 @@
            
             <div id="main" class="mainpage">
                 
-            
+                <br>
                 <h2 style=" text-align: left ;padding-left: 5px">Sales Order Entry</h2>
+                <br>
                 
                 <form  method="post" action="Create_Sales_Order_Step2.jsp" class="normal_form" onsubmit="return alertconfirm();">
-                    <table class="" align="center" style="width:40%;">
+                    <table class="" align="center" style="width:80%;">
                         <tr>
-                            <th>Quotation ID</th>
+                            <th style=" text-align: right; width: 35%; padding-right: 10px;">Quotation ID</th>
                             <td><input style="display:inline;width: 75%;" class=" form-control" type="text"  id="Quotation_id" name="Quotation_id" readonly/><input class="btn btn-default" id="selectProButton" type="button" value="+" onclick="SelectQ()" style="width:25%; display:inline;" />
+                            <td><button style=" float: right;" class="btn btn-primary btn-lg" id="Skip" name="Skip" type="button" onclick="location.href='Create_Sales_Order_Skip.jsp'">Skip</button></td>
                         </tr>
                         <tr>
-                            <th>Quotation No</th>
+                            <th style=" text-align: right;padding-right: 6px;">Quotation No</th>
                             <td><input style="display:inline;" class=" form-control" type="text"  id="Quotation_no" name="Quotation_no" readonly/></td>
                             
                         </tr>
@@ -560,12 +562,17 @@
                     </table>
                         <input id="save_counter" name="save_counter" hidden>
                         <input id="save_line" hidden>
-
-                     <br>
-                    <table  align="center" style=" width: 85%;">
-                        <tr><div class="form-submit">
+<!--                    <table align="right" border="1">
+                        <tr>
                             <td><button style=" float: left;" class="btn btn-danger btn-lg" id="Skip" name="Skip" type="button" onclick="location.href='Create_Sales_Order_Skip.jsp'">Skip</button></td>
-                            <td><button style=" float: right;" class="btn btn-primary btn-lg" id="submit" name="Next" type="submit" value="Next">Next</button></td>
+                        </tr>
+                    </table>-->
+<!--                    <button style=" width: 20%;float: right;" class="btn btn-danger btn-lg" id="Skip" name="Skip" type="button" onclick="location.href='Create_Sales_Order_Skip.jsp'">Skip</button>-->
+                     <br>
+                    <table  align="center" style=" width: 80%;">
+                        <tr><div class="form-submit">
+                            <td><button style=" float: left;" class="btn btn-danger btn-lg" id="Skip" name="Cancel" type="button" onclick="location.href='Sales_Order.jsp'">Cancel</button></td>
+                            <td><button style=" float: right;" class="btn btn-success btn-lg" id="submit" name="Next" type="submit" value="Next">Next</button></td>
                         </div></tr>
                     </table>            
 
