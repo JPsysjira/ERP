@@ -24,9 +24,8 @@
         String dbName = "erp1";//Database Name
         String userId = "root";//Username
         String password = "1234";//Password
-        
-        //comment
 
+        //comment
         try {
             Class.forName(driverName);
         } catch (ClassNotFoundException e) {
@@ -40,7 +39,7 @@
         connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + dbName + "?useUnicode=yes&characterEncoding=UTF-8", userId, password);//Connect Database
 
 //        String item_no,item_eng,item_th,size,spec,cus_id,currency,standard_price,mt_unit_price,process_price,date,time;
-        String od_no, od_cust_id, od_qt_id,od_contact, od_cont_tel, od_name, od_stats, od_odate, od_pay_stat,od_cur_id;
+        String od_no, od_cust_id, od_qt_id, od_contact, od_cont_tel, od_name, od_stats, od_odate, od_pay_stat, od_cur_id;
         String od_cre_date, od_cre_time, od_user_id;
         String od_comm, od_delivery_date, od_pay_date, reg_date, reg_time;
 
@@ -94,7 +93,7 @@
         reg_time = time;
 
 
-        PreparedStatement pstmt = null, pstmtd = null; //create statement. 
+        PreparedStatement pstmt = null, pstmtd = null,pstmts = null; //create statement. 
 
         pstmt = connect.prepareStatement("INSERT INTO erp1.od_head(OD_QT_ID,OD_NO,OD_CUST_ID,"
                 + "OD_CONTACT,OD_CONT_TEL,OD_NAME,OD_ODATE ,OD_STATS,OD_PAY_STAT,OD_CUR_ID,"
@@ -180,8 +179,25 @@
                 pstmtd.executeUpdate();
 
             }
+
+                
         }
-        out.println("Insert Successfully...!");// after insert record successfully message.
+        
+        if(od_qt_id == "Null"){
+           out.println("Insert Successfully...!");
+        }
+        else{
+           int j = 1;
+           pstmts = connect.prepareStatement("UPDATE erp1.qt_head SET QT_ORDER = ? where QT_ID = ?");
+
+           pstmts.setInt(1, j);
+           pstmts.setString(2, od_qt_id);
+           pstmts.executeUpdate();
+
+           out.println("Insert Successfully...!");// after insert record successfully message.
+
+           }
+        
     }
 %>
 <meta http-equiv=refresh content=1;URL=Sales_Order.jsp><!-- return to Quotation Page -->
@@ -190,7 +206,7 @@
 
 <!--<script>alert('Please Enter Product');</script>
 <meta http-equiv= refresh content= 1;URL=Create_Quotation.jsp>-->
-   
+
 
 <%
     out.println(e);

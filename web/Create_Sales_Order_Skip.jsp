@@ -553,7 +553,7 @@
                 <form  method="post" action="Insert_Sales_Order.jsp" class="normal_form">
                     <table class="myTable" align="center">
                         <!--                        <tr><th style="padding-left:40px;">ID</th>
-                        -->                         <input hidden="" class=" form-control" type="text" name="od_qt_id" value="0"/><!--
+                        -->                         <input hidden="" class=" form-control" type="text" name="od_qt_id" value="Null"/><!--
                                                     <td></td>
                                                     <td></td>
                                                 </tr>-->
