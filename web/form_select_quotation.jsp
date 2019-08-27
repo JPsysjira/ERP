@@ -186,7 +186,7 @@
                         String sqlqt = "select * from erp1.qt_head "
                                 + "INNER JOIN `erp1`.`customer` customer ON qt_head.`QT_CUST_ID` = customer.`CUST_ID` "
                                 + "INNER JOIN `erp1`.`user_master` userm ON qt_head.`QT_USER_ID` = userm.`USER_ID`  "
-                                + "where qt_head.`FLG2` = 0;";
+                                + "where qt_head.`FLG2` = 0 and qt_head.`QT_ORDER` = 0;";
                         resultqt = statementqt.executeQuery(sqlqt);
                 %>
                 <table class="table table-bordered" id="myTable">
