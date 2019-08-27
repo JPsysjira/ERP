@@ -578,8 +578,11 @@
                 var r = confirm("Download Excel file");
 
                 if (r === true) {
-                    document.location.href = "Export_Quotation_to_Excel.jsp";
-
+                    
+                    window.open("Export_Quotation_to_Excel.jsp");
+//                  window.open("Export_Quotation_to_Excel2.jsp");
+//                    document.location.href = "Export_Quotation_to_Excel.jsp";
+//                    document.location.href = "Export_Quotation_to_Excel2.jsp";
                 } else {
                     document.location.href = "Quotation.jsp";
                 }

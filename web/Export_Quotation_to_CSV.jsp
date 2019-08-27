@@ -49,10 +49,19 @@
             outputStream.write(0xBB);
             outputStream.write(0xBF);
             
-            String outputResult = "QT ID, QT No, QT Customer Code, QT Customer Name EN, QT Customer Name, QT Customer TaxID, QT Contact, QT Contact Tel,"
-                    + " QT Name, QT Stats, QT Date,QT Valid, QT Company TAX, QT Currency ID, QT Currency Name, QT Currency Code, QT Currency SYM, QT Amount, QT Amount/Discount & TAX,QT Discount,"
-                    + " QT Sub Total, QT TAX, QT Create Date,QT Create Time, QT FLG1, QT Expiration Date,QT User ID,QT User Name EN,QT Comment, QT Valid Term,QT Delivery Term,QT Payment Term,"
-                    + " Registeration of Date, Registeration of Time, FLG1, Date of Update, Time of Update, FLG2\n";
+//            String outputResult = "QT ID, QT No, QT Customer Code, QT Customer Name EN, QT Customer Name, QT Customer TaxID, QT Contact, QT Contact Tel,"
+//                    + " QT Name, QT Stats, QT Date,QT Valid, QT Company TAX, QT Currency ID, QT Currency Name, QT Currency Code, QT Currency SYM, QT Amount, QT Amount/Discount & TAX,QT Discount,"
+//                    + " QT Sub Total, QT TAX, QT Create Date,QT Create Time, QT FLG1, QT Expiration Date,QT User ID,QT User Name EN,QT Comment, QT Valid Term,QT Delivery Term,QT Payment Term,"
+//                    + " Registeration of Date, Registeration of Time, FLG1, Date of Update, Time of Update, FLG2\n";
+//            String outputResult = "QT ID, QT No, QT Customer Code, QT Contact, QT Contact Tel,"
+//                    + " QT Name, QT Stats, QT Date,QT Valid, QT Currency ID,QT Create Date,QT Create Time, QT Amount, QT Amount/Discount & TAX,QT Discount,"
+//                    + " QT Sub Total, QT Vat, QT Expiration Date,QT User ID,QT Comment, QT Valid Term,QT Delivery Term,QT Payment Term,"
+//                    + " Registeration of Date, Registeration of Time, FLG1, Date of Update, Time of Update, FLG2\n";
+String outputResult = "QT ID, QT No, QT Customer Code, QT Contact, QT Contact Tel,"
+                    + " QT Name, QT Stats, QT Date,QT Valid, QT Currency ID,QT Create Date,QT Create Time,"
+                    + " QT Expiration Date,QT User ID,QT Comment, QT Valid Term,QT Delivery Term,QT Payment Term,QT Amount, QT Amount/Discount & TAX,QT Discount,"
+                    + " QT Sub Total, QT Vat,Registeration of Date, Registeration of Time, FLG1, Date of Update, Time of Update, FLG2\n";
+            
             outputStream.write(outputResult.getBytes());
             while (rs.next()) {
                 outputStream.write(rs.getString(1).getBytes());
@@ -80,8 +89,8 @@
                 outputStream.write(rs.getString(12).getBytes());
                 outputStream.write(",".getBytes());
                 //csv company tax not correct
-                outputStream.write(rs.getString(13).getBytes());
-                outputStream.write(",".getBytes());
+//                outputStream.write(rs.getString(13).getBytes());
+//                outputStream.write(",".getBytes());
                 outputStream.write(rs.getString(14).getBytes());
                 outputStream.write(",".getBytes());
                 outputStream.write(rs.getString(15).getBytes(StandardCharsets.UTF_8));
@@ -110,38 +119,48 @@
                 outputStream.write(",".getBytes());
                 outputStream.write(rs.getString(27).getBytes());
                 outputStream.write(",".getBytes());
-                outputStream.write(rs.getString(28).getBytes());
-                outputStream.write(",".getBytes());
-                outputStream.write(rs.getString(29).getBytes());
-                outputStream.write(",".getBytes());
-                outputStream.write(rs.getString(30).getBytes(StandardCharsets.UTF_8));
-                outputStream.write(",".getBytes());
-                outputStream.write(rs.getString(31).getBytes(StandardCharsets.UTF_8));
-                outputStream.write(",".getBytes());
-                outputStream.write(rs.getString(32).getBytes(StandardCharsets.UTF_8));
-                outputStream.write(",".getBytes());
-                outputStream.write(rs.getString(33).getBytes());
-                outputStream.write(",".getBytes());
-                outputStream.write(rs.getString(34).getBytes());
-                outputStream.write(",".getBytes());
-                outputStream.write(rs.getString(35).getBytes());
-                outputStream.write(",".getBytes());
-                if (rs.getString(36) == null) {
+                if (rs.getString(28) == null) {
                     dateu = "null";
                 } else {
-                    dateu = rs.getString(36);
+                    dateu = rs.getString(28);
                 }
                 outputStream.write(dateu.getBytes());
                 outputStream.write(",".getBytes());
-                if (rs.getString(37) == null) {
+                if (rs.getString(29) == null) {
                     timeu = "null";
                 } else {
-                    timeu = rs.getString(37);
+                    timeu = rs.getString(29);
                 }
                 outputStream.write(timeu.getBytes());
                 outputStream.write(",".getBytes());
-                outputStream.write(rs.getString(38).getBytes());
+                outputStream.write(rs.getString(30).getBytes(StandardCharsets.UTF_8));
                 outputStream.write("\n".getBytes());
+////                outputStream.write(rs.getString(31).getBytes(StandardCharsets.UTF_8));
+////                outputStream.write(",".getBytes());
+////                outputStream.write(rs.getString(32).getBytes(StandardCharsets.UTF_8));
+////                outputStream.write(",".getBytes());
+////                outputStream.write(rs.getString(33).getBytes());
+////                outputStream.write(",".getBytes());
+////                outputStream.write(rs.getString(34).getBytes());
+////                outputStream.write(",".getBytes());
+////                outputStream.write(rs.getString(35).getBytes());
+////                outputStream.write(",".getBytes());
+////                if (rs.getString(36) == null) {
+////                    dateu = "null";
+////                } else {
+////                    dateu = rs.getString(36);
+////                }
+////                outputStream.write(dateu.getBytes());
+////                outputStream.write(",".getBytes());
+////                if (rs.getString(37) == null) {
+////                    timeu = "null";
+////                } else {
+////                    timeu = rs.getString(37);
+////                }
+////                outputStream.write(timeu.getBytes());
+////                outputStream.write(",".getBytes());
+////                outputStream.write(rs.getString(38).getBytes());
+////                outputStream.write("\n".getBytes());
             }
             outputStream.flush();
             outputStream.close();
