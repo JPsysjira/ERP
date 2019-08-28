@@ -567,7 +567,9 @@
                 var r = confirm("Download CSV file");
 
                 if (r === true) {
-                    document.location.href = "Export_Quotation_to_CSV.jsp";
+//                    document.location.href = "Export_Quotation_to_CSV.jsp";
+                    window.open("Export_Quotation_to_CSV.jsp","_blank");
+                    window.open("Export_Quotation_to_CSV _qt_detail.jsp","_blank");
 
                 } else {
                     document.location.href = "Quotation.jsp";

@@ -25,23 +25,34 @@
     String dbName = "erp1";
     String userId = "root";
     String password = "1234";
-    Integer i = 1;
-    Statement stmt;
+    Integer i = 1,j = 1;
+    Statement stmt,stmt2;
 
     Class.forName(driver).newInstance();
     conn = DriverManager.getConnection(connectionUrl + dbName, userId, password);
     String query = "select * from qt_head";
+    String query2 = "select * from qt_detail";
     stmt = conn.createStatement();
-
+    stmt2 = conn.createStatement();
+    
     ResultSet rs = stmt.executeQuery(query);
+    ResultSet rs2 = stmt2.executeQuery(query2);
     
     try {
 
 // create a small spreadsheet
         HSSFWorkbook wb = new HSSFWorkbook();
-        HSSFSheet sheet = wb.createSheet();
+        HSSFSheet sheet = wb.createSheet("Sheet1");
+        HSSFSheet sheet2 = wb.createSheet("Sheet2");
         HSSFRow row = sheet.createRow(0);
         sheet.addMergedRegion(new CellRangeAddress(
+                0, //first row (0-based)
+                0, //last row (0-based)
+                0, //first column (0-based)
+                0 //last column (0-based)
+        ));
+        HSSFRow row2 = sheet2.createRow(0);
+        sheet2.addMergedRegion(new CellRangeAddress(
                 0, //first row (0-based)
                 0, //last row (0-based)
                 0, //first column (0-based)
@@ -59,7 +70,7 @@
 
         String filename = "Quotation_xls_" + date + "_" + time + ".xls";
 
-        HSSFCell cell;
+        HSSFCell cell,cell2;
         row = sheet.createRow(0);
         cell = row.createCell(0);
         cell.setCellValue("QT ID");
@@ -67,13 +78,6 @@
         cell.setCellValue("QT No");
         cell = row.createCell(2);
         cell.setCellValue("QT Customer Code");
-//      cell = row.createCell(3);
-//        cell.setCellValue("QT Customer Name EN");
-//        cell = row.createCell(4);
-//        cell.setCellValue("QT Customer Name");
-//        cell = row.createCell(5);
-//        cell.setCellValue("QT Customer TaxID");
-//        cell = row.createCell(6);
         cell = row.createCell(3);
         cell.setCellValue("QT Contact");
         cell = row.createCell(4);
@@ -126,7 +130,8 @@
         cell.setCellValue("Time of Update");
         cell = row.createCell(28);
         cell.setCellValue("FLG2");
-        
+        cell = row.createCell(29);
+        cell.setCellValue("QT_ORDER");
 
         while (rs.next()) {
 
@@ -189,11 +194,93 @@
             cell.setCellValue(rs.getString(29));
              cell = row.createCell(28);
             cell.setCellValue(rs.getString(30));
-            
+            cell = row.createCell(29);
+            cell.setCellValue(rs.getString(31));
 
             i++;
         }
+        //Sheet2
+        row2 = sheet2.createRow(0);
+        cell2 = row2.createCell(0);
+        cell2.setCellValue("QTD_ID");
+        cell2 = row2.createCell(1);
+        cell2.setCellValue("QT_ID");
+        cell2 = row2.createCell(2);
+        cell2.setCellValue("QTD_LINENO");
+        cell2 = row2.createCell(3);
+        cell2.setCellValue("QTD_ITEM_NO");
+        cell2 = row2.createCell(4);
+        cell2.setCellValue("QTD_DES_HEAD");
+        cell2 = row2.createCell(5);
+        cell2.setCellValue("QTD_DEST");
+        cell2 = row2.createCell(6);
+        cell2.setCellValue("QTD_UNIT_PRICE");
+        cell2 = row2.createCell(7);
+        cell2.setCellValue("QTD_QTY");
+        cell2 = row2.createCell(8);
+        cell2.setCellValue("QTD_AMT");
+        cell2 = row2.createCell(9);
+        cell2.setCellValue("QTD_DISC_PERCENT");
+        cell2 = row2.createCell(10);
+        cell2.setCellValue("QTD_DISC_AMOUNT");
+        cell2 = row2.createCell(11);
+        cell2.setCellValue("QTD_AMT_A_DISC");
+        cell2 = row2.createCell(12);
+        cell2.setCellValue("Registeration of Date");
+        cell2 = row2.createCell(13);
+        cell2.setCellValue("Registeration of Time");
+        cell2 = row2.createCell(14);
+        cell2.setCellValue("FLG1");
+        cell2 = row2.createCell(15);
+        cell2.setCellValue("Date of Update");
+        cell2 = row2.createCell(16);
+        cell2.setCellValue("Time of Update");
+        cell2 = row2.createCell(17);
+        cell2.setCellValue("FLG2");
+        
 
+        while (rs2.next()) {
+
+            row2 = sheet2.createRow(j);
+            cell2 = row2.createCell(0);
+            cell2.setCellValue(rs2.getString(1));
+            cell2 = row2.createCell(1);
+            cell2.setCellValue(rs2.getString(2));
+            cell2 = row2.createCell(2);
+            cell2.setCellValue(rs2.getString(3));
+            cell2 = row2.createCell(3);
+            cell2.setCellValue(rs2.getString(4));
+            cell2 = row2.createCell(4);
+            cell2.setCellValue(rs2.getString(5));
+            cell2 = row2.createCell(5);
+            cell2.setCellValue(rs2.getString(6));
+            cell2 = row2.createCell(6);
+            cell2.setCellValue(rs2.getString(7));
+            cell2 = row2.createCell(7);
+            cell2.setCellValue(rs2.getString(8));
+            cell2 = row2.createCell(8);
+            cell2.setCellValue(rs2.getString(9));
+            cell2 = row2.createCell(9);
+            cell2.setCellValue(rs2.getString(10));
+            cell2 = row2.createCell(10);
+            cell2.setCellValue(rs2.getString(11));
+            cell2 = row2.createCell(11);
+            cell2.setCellValue(rs2.getString(12));
+            cell2 = row2.createCell(12);
+            cell2.setCellValue(rs2.getString(13));
+            cell2 = row2.createCell(13);
+            cell2.setCellValue(rs2.getString(14));
+            cell2 = row2.createCell(14);
+            cell2.setCellValue(rs2.getString(15));
+            cell2 = row2.createCell(15);
+            cell2.setCellValue(rs2.getString(16));
+            cell2 = row2.createCell(16);
+            cell2.setCellValue(rs2.getString(17));
+            cell2 = row2.createCell(17);
+            cell2.setCellValue(rs2.getString(18));
+            cell2 = row2.createCell(18);
+            j++;
+        }
 // write it as an excel attachment
         conn.close();
         ByteArrayOutputStream outByteStream = new ByteArrayOutputStream();
@@ -207,7 +294,7 @@
         outStream.write(outArray);
         outStream.flush();
         %>
-        <meta http-equiv=refresh content=1;URL=Export_Quotation_to_Excel2.jsp>
+<!--        <meta http-equiv=refresh content=1;URL=Export_Quotation_to_Excel2.jsp>-->
         <%
     } catch (Exception e) {
         e.printStackTrace();
