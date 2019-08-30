@@ -386,9 +386,11 @@
                                 <ul class="dropdown-menu">
 
                                     <li>
-                                        <button style=" width: 100%" type="submit" class="btn btn-light" onclick = "exportqtcsv()">Export to CSV</button>
+                                        <button style=" width: 100%" type="submit" class="btn btn-light" onclick = "exportqtcsvhead()">Export to CSV (QT_HEAD)</button>
                                     </li>
-
+                                    <li>
+                                        <button style=" width: 100%" type="submit" class="btn btn-light" onclick = "exportqtcsvdetail()">Export to CSV (QT_DETAIL)</button>
+                                    </li>
                                     <li>
                                         <button style=" width: 100%" type="submit" class="btn btn-light" onclick = "exportqtexcel()">Export to Excel</button>
                                     </li>
@@ -563,24 +565,28 @@
 
             }
 
-            function exportqtcsv() {
+            function exportqtcsvhead() {
                 var r = confirm("Download CSV file");
 
                 if (r === true) {
-//                    document.location.href = "Export_Quotation_to_CSV.jsp";
-                    window.open("Export_Quotation_to_CSV.jsp","_blank");
-                    window.open("Export_Quotation_to_CSV _qt_detail.jsp","_blank");
-
+                    window.open("Export_Quotation_to_CSV_qt_head.jsp");
                 } else {
                     document.location.href = "Quotation.jsp";
                 }
             }
+            function exportqtcsvdetail() {
+                var r = confirm("Download CSV file");
 
+                if (r === true) {
+                    window.open("Export_Quotation_to_CSV _qt_detail.jsp");
+                } else {
+                    document.location.href = "Quotation.jsp";
+                }
+            }
             function exportqtexcel() {
                 var r = confirm("Download Excel file");
 
                 if (r === true) {
-                    
                     window.open("Export_Quotation_to_Excel.jsp");
 //                  window.open("Export_Quotation_to_Excel2.jsp");
 //                    document.location.href = "Export_Quotation_to_Excel.jsp";

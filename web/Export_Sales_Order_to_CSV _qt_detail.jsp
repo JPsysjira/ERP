@@ -27,13 +27,13 @@
         SimpleDateFormat sdf = new SimpleDateFormat("HH_mm_ss");
         time = sdf.format(cal.getTime());
 
-        String filename = "Quotation_CSV_" + date + "_" + time + ".csv";
+        String filename = "Sales_Order_CSV_" + date + "_" + time + ".csv";
 
         Class.forName("com.mysql.jdbc.Driver").newInstance();
 
         Class.forName(driver).newInstance();
         conn = DriverManager.getConnection(connectionUrl + dbName, userId, password);
-        String query = "select * from qt_detail";
+        String query = "select * from od_detail";
         stmt = conn.createStatement();
 
         ResultSet rs = stmt.executeQuery(query);
@@ -57,8 +57,8 @@
 //                    + " QT Name, QT Stats, QT Date,QT Valid, QT Currency ID,QT Create Date,QT Create Time, QT Amount, QT Amount/Discount & TAX,QT Discount,"
 //                    + " QT Sub Total, QT Vat, QT Expiration Date,QT User ID,QT Comment, QT Valid Term,QT Delivery Term,QT Payment Term,"
 //                    + " Registeration of Date, Registeration of Time, FLG1, Date of Update, Time of Update, FLG2\n";
-String outputResult = "QTD_ID, QT_ID, QTD_LINENO, QTD_ITEM_NO, QTD_DES_HEAD,"
-                    + " QTD_DEST, QTD_UNIT_PRICE, QTD_QTY,QTD_AMT, QTD_DISC_PERCENT,QTD_DISC_AMOUNT,QTD_AMT_A_DISC,"
+String outputResult = "QDD_ID, ODD_QD_ID, QDD_LINENO, QDD_ITEM_NO, QDD_DES_HEAD,"
+                    + " QDD_DEST, QDD_UNIT_PRICE, QDD_QTY,QTD_AMT, QDD_DISC_PERCENT,QDD_DISC_AMOUNT,QDD_AMT_A_DISC,"
                     + " Registeration of Date, Registeration of Time, FLG1, Date of Update, Time of Update, FLG2\n";
             
             outputStream.write(outputResult.getBytes());
